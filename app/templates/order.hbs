@@ -1,9 +1,18 @@
 <h2>Checkout</h2>
 
-{{input value=model.test placeholder="Order Test"}}
+<h3>Shipping Address</h3>
+
+{{address-book addresses=model.user.addressBook}}
+
+
+{{!-- {{input value=model.test placeholder="Order Test"}}
 
 {{model.address.firstName}}
 
+{{model.user.email}}
+
 {{shipping-address address=model.address}}
+
+{{address-book}} --}}
 
 {{outlet}}

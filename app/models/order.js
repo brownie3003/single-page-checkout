@@ -1,16 +1,18 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-    address: DS.belongsTo('address', { async: true }),
-    test: DS.attr('string')
+    shippingAddress: DS.belongsTo('address', { async: true }),
+    test: DS.attr('string'),
+    user: DS.belongsTo('user', { async: true})
     // billingAddress: DS.belongsTo('address'),
     // deliveryMethod: DS.belongsTo('delivery-method')
 }).reopenClass({
     FIXTURES: [
         {
             id: 1,
-            address: 2,
-            test: "hello"
+            shippingAddress: 2,
+            test: "hello",
+            user: 1
         }
     ]
 });

@@ -1,0 +1,14 @@
+<h4>Saved Addresses</h4>
+<ul>
+    {{#each addresses as |address|}}
+        {{moo-address address=address}}
+    {{/each}}
+</ul>
+
+<p>
+    Enter a new address here
+</p>
+
+<h1>{{shippingAddress}}</h1>
+
+{{yield}}

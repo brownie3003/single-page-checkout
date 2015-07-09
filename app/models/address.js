@@ -11,7 +11,8 @@ export default DS.Model.extend({
     county: DS.attr('string'),
     postcode: DS.attr('string'),
     country: DS.attr('string'),
-    orders: DS.hasMany('order', { async: true })
+    orders: DS.hasMany('order', { async: true }),
+    user: DS.belongsTo('user', { async: true})
 }).reopenClass({
     FIXTURES: [
         {
@@ -22,7 +23,8 @@ export default DS.Model.extend({
             firstLine: "123 Dalston",
             city: "London",
             postcode: "E8 4RQ",
-            orders: [1]
+            orders: [1],
+            user: 1
         },
         {
             id: 2,
@@ -31,7 +33,8 @@ export default DS.Model.extend({
             firstLine: "123 Bethnal Green",
             city: "London",
             postcode: "E2 4RQ",
-            orders: [1]
+            orders: [1],
+            user: 1
         }
     ]
 });
