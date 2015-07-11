@@ -1,20 +1,16 @@
 <h4>Saved Addresses</h4>
 <ul>
-    {{!-- TODO make radio buttons save shippingAddress on model--}}
     {{#each addresses as |address|}}
-        <div class="radio">
-            {{radio-button value=address name="shippingAddress" id=address checked='order.shippingAddress'}}
-            <label for="{{address}}">{{moo-address address=address}}</label>
-        </div>
+        {{address-radio address=address radioName="shippingAddress" selectedAddress=targetAddress action="changeAddress"}}
     {{/each}}
 </ul>
 
-<p>
+{{!-- <p>
     <button type="button" name="button" {{action "toggleAddNewAddress"}}>Enter a new address</button>
 </p>
 
 {{#if addNewAddress}}
     {{address-form address=shippingAddress}}
-{{/if}}
+{{/if}} --}}
 
 {{yield}}

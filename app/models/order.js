@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-    shippingAddress: DS.belongsTo('address', { async: true }),
+    shippingAddress: DS.belongsTo('address'),
     test: DS.attr('string'),
     user: DS.belongsTo('user', { async: true})
     // billingAddress: DS.belongsTo('address'),
