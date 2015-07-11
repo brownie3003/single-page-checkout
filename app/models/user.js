@@ -11,4 +11,4 @@ export default DS.Model.extend({
             addressBook: [1, 2]
         }
     ]
-})
+});

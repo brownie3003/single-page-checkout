@@ -6,6 +6,8 @@
     {{address-book addresses=model.user.addressBook targetAddress=model.shippingAddress targetAddressName="shippingAddress"}}
 
     <h3>Delivery Options</h3>
+    
+    {{delivery-methods shippingCountry=model.shippingAddress.country}}
 
     <h3>Billing Address</h3>
     

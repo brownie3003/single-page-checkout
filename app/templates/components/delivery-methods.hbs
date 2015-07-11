@@ -1,0 +1,9 @@
+{{shippingCountry}}
+
+{{#each deliveryMethods as |deliveryMethod|}}
+    <p>
+        {{deliveryMethod.deliveryDate}} - £{{deliveryMethod.price}}
+    </p>
+{{/each}}
+
+{{yield}}

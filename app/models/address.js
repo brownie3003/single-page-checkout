@@ -22,6 +22,7 @@ export default DS.Model.extend({
             firstLine: "123 Dalston",
             city: "London",
             postcode: "E8 4RQ",
+            country: "uk",
             orders: [1],
             user: 1
         },
@@ -32,6 +33,7 @@ export default DS.Model.extend({
             firstLine: "123 Bethnal Green",
             city: "London",
             postcode: "E2 4RQ",
+            country: "us",
             orders: [1],
             user: 1
         }
