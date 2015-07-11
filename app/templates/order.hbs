@@ -7,20 +7,14 @@
 
     <h3>Delivery Options</h3>
 
-    {{!-- {{errors.model.test}}
-    {{input value=model.test placeholder="Order Test"}} --}}
-
-    {{!-- {{model.address.firstName}}
-
-    {{model.user.email}}
-
-    {{shipping-address address=model.address}}
-
-    {{address-book}}  --}}
-
+    <h3>Billing Address</h3>
+    
+    {{address-book addresses=model.user.addressBook targetAddress=model.billingAddress targetAddressName="billingAddress"}}
 
     <h2>Basket</h2>
     <h3>Shipping To:</h3>
     {{moo-address address=model.shippingAddress}}
+    <h3>Billing Address:</h3>
+    {{moo-address address=model.billingAddress}}
     {{outlet}}
 </div>

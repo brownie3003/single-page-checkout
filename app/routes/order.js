@@ -12,6 +12,7 @@ export default Ember.Route.extend({
             var defaultAddress = user.get('addressBook').get('firstObject');
             // should check whether an address exists, if not create a new record.
             order.set('shippingAddress', defaultAddress);
+            order.set('billingAddress', defaultAddress);
             order.set('user', user);
         });
 

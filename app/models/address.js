@@ -11,7 +11,6 @@ export default DS.Model.extend({
     state: DS.attr('string'),
     postcode: DS.attr('string'),
     country: DS.attr('string'),
-    orders: DS.hasMany('order', { async: true }),
     user: DS.belongsTo('user', { async: true})
 }).reopenClass({
     FIXTURES: [
