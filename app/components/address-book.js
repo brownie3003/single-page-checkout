@@ -1,5 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-    shippingAddress: "nil"
+    addNewAddress: false,
+    actions: {
+        toggleAddNewAddress: function(){
+            this.toggleProperty('addNewAddress');
+        }
+    }
 });

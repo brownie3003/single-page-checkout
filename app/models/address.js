@@ -8,7 +8,7 @@ export default DS.Model.extend({
     secondLine: DS.attr('string'),
     thirdLine: DS.attr('string'),
     city: DS.attr('string'),
-    county: DS.attr('string'),
+    state: DS.attr('string'),
     postcode: DS.attr('string'),
     country: DS.attr('string'),
     orders: DS.hasMany('order', { async: true }),
@@ -37,4 +37,15 @@ export default DS.Model.extend({
             user: 1
         }
     ]
+}).reopen({
+    validations: {
+        firstName: {
+            presence: true,
+            length: { minimum: 2 }
+        },
+        lastName: {
+            presence: true,
+            length: { minimum: 3 }
+        }
+    }
 });

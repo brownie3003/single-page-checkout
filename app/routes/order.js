@@ -5,8 +5,8 @@ export default Ember.Route.extend({
         // return this.store.find('order', 1);
         var store = this.store;
         var order = store.createRecord('order');
-        var address = store.createRecord('address');
-        order.set('address', address);
+        var shippingAddress = store.createRecord('address');
+        order.set('shippingAddress', shippingAddress);
 
         store.find('user', 1).then(function (user) {
             order.set('user', user);

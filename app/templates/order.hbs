@@ -1,18 +1,26 @@
-<h2>Checkout</h2>
+<div class="col-lg-8 col-lg-offset-2">
+    <h2>Checkout</h2>
 
-<h3>Shipping Address</h3>
+    <h3>Shipping Address</h3>
 
-{{address-book addresses=model.user.addressBook}}
+    {{address-book addresses=model.user.addressBook shippingAddress=model.shippingAddress}}
+
+    <h3>Delivery Options</h3>
+
+    {{!-- {{errors.model.test}}
+    {{input value=model.test placeholder="Order Test"}} --}}
+
+    {{!-- {{model.address.firstName}}
+
+    {{model.user.email}}
+
+    {{shipping-address address=model.address}}
+
+    {{address-book}}  --}}
 
 
-{{!-- {{input value=model.test placeholder="Order Test"}}
-
-{{model.address.firstName}}
-
-{{model.user.email}}
-
-{{shipping-address address=model.address}}
-
-{{address-book}} --}}
-
-{{outlet}}
+    <h2>Basket</h2>
+    <h3>Shipping To:</h3>
+    {{moo-address address=model.shippingAddress}}
+    {{outlet}}
+</div>
