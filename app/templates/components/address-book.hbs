@@ -1,7 +1,7 @@
 <h4>Saved Addresses</h4>
 <ul>
     {{#each addresses as |address|}}
-        {{address-radio address=address radioName="shippingAddress" selectedAddress=targetAddress action="changeAddress"}}
+        {{address-radio address=address radioName=targetAddressName selectedAddress=targetAddress action="changeAddress"}}
     {{/each}}
 </ul>
 
