@@ -1,9 +1,14 @@
 <div class="col-lg-8 col-lg-offset-2">
     <h2>Checkout</h2>
+    
+    {{order.items}}
+    {{#each order.items as |item|}}
+        {{item.description}}
+    {{/each}}
 
     <h3>Shipping Address</h3>
     
-    {{address-book addresses=model.user.addressBook targetAddress=model.shippingAddress targetAddressName="shippingAddress"}}
+    {{address-book addresses=order.user.addressBook targetAddress=order.shippingAddress targetAddressName="shippingAddress"}}
 
     <h3>Delivery Options</h3>
     
@@ -11,12 +16,12 @@
 
     <h3>Billing Address</h3>
     
-    {{address-book addresses=model.user.addressBook targetAddress=model.billingAddress targetAddressName="billingAddress"}}
+    {{address-book addresses=order.user.addressBook targetAddress=order.billingAddress targetAddressName="billingAddress"}}
 
     <h2>Basket</h2>
     <h3>Shipping To:</h3>
-    {{moo-address address=model.shippingAddress}}
+    {{moo-address address=order.shippingAddress}}
     <h3>Billing Address:</h3>
-    {{moo-address address=model.billingAddress}}
+    {{moo-address address=order.billingAddress}}
     {{outlet}}
 </div>

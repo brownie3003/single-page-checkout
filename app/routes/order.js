@@ -15,7 +15,18 @@ export default Ember.Route.extend({
             order.set('billingAddress', defaultAddress);
             order.set('user', user);
         });
+        
+        store.find('item', 1).then(function (item) {
+            order.get('items').pushObject(item);
+        });
+        
+        store.find('item', 2).then(function (item) {
+            order.get('items').pushObject(item);
+        });
 
         return order;
+    },
+    setupController(controller, model) {
+        controller.set("order", model)
     }
 });

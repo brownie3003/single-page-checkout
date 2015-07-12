@@ -7,10 +7,7 @@ export default Ember.Component.extend({
         'address.firstLine',
         'address.postcode',
         function() {
-            return this.get('address.firstName') + ' ' 
-                + this.get('address.lastName') + ', '
-                + this.get('address.firstLine') + '... '
-                + this.get('address.postcode');
+            return this.get('address.firstName') + ' ' + this.get('address.lastName') + ', ' + this.get('address.firstLine') + '... ' + this.get('address.postcode');
         }
     ),
 });
