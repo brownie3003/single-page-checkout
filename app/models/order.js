@@ -5,8 +5,8 @@ export default DS.Model.extend({
     billingAddress: DS.belongsTo('address'),
     items: DS.hasMany('item', { async: true }),
     user: DS.belongsTo('user', { async: true }),
-    isPaid: DS.attr('boolean', { defaultValue: false })
-    // deliveryMethod: DS.belongsTo('delivery-method')
+    isPaid: DS.attr('boolean', { defaultValue: false }),
+    deliveryMethod: DS.belongsTo('delivery-method', { defaultValue: null })
 }).reopenClass({
     FIXTURES: [
         {
