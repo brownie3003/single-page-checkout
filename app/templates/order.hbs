@@ -1,11 +1,6 @@
-<div class="col-lg-8 col-lg-offset-2">
+<div class="col-lg-8">
     <h2>Checkout</h2>
     
-    {{order.items}}
-    {{#each order.items as |item|}}
-        {{item.description}}
-    {{/each}}
-
     <h3>Shipping Address</h3>
     
     {{address-book addresses=order.user.addressBook targetAddress=order.shippingAddress targetAddressName="shippingAddress"}}
@@ -17,11 +12,31 @@
     <h3>Billing Address</h3>
     
     {{address-book addresses=order.user.addressBook targetAddress=order.billingAddress targetAddressName="billingAddress"}}
+</div>
 
-    <h2>Basket</h2>
-    <h3>Shipping To:</h3>
+<div class="col-lg-4">
+    <h2>Summary</h2>
+    <h4>Price</h4>
+    <p>
+        Item Price: £{{totalItemsPrice}}
+    </p>
+    <p>
+        Delivery Price: £{{order.deliveryMethod.price}}
+    </p>
+    <p>
+        Total Price: £
+    </p>
+    <h4>Delivery</h4>
+    blah
+    <h4>Shipping Address</h4>
     {{moo-address address=order.shippingAddress}}
-    <h3>Billing Address:</h3>
+    <h4>Billing Address</h4>
     {{moo-address address=order.billingAddress}}
     {{outlet}}
+    <h4>Cart Items</h4>
+    {{#each order.items as |item|}}
+        <p>
+            {{item.quantity}} x {{item.description}}
+        </p>
+    {{/each}}
 </div>

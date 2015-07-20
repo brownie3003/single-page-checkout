@@ -1,9 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-    apiService: Ember.inject.service('delivery-methods'),
-    deliveryMethods: Ember.computed('shippingCountry', function() {
-        var deliveryMethods =  this.get('apiService').getDeliveryMethods(this.get('shippingCountry'));
-        return deliveryMethods;
+    store: Ember.inject.service(),
+    availableDeliveryMethods: Ember.computed('deliveryMethods', 'shippingCountry', function() {
+        var shippingCountry = this.get('shippingCountry');
+        var store = this.get('store');
+        return store.filter('deliveryMethod', function(deliveryMethod) {
+            return deliveryMethod.get('shippingCountry') === shippingCountry;
+        })
     })
 });

@@ -3,10 +3,12 @@ import EmberValidations from 'ember-validations';
 
 
 export default Ember.Controller.extend(EmberValidations, {
-    validations: {
-        'model.test': {
-            presence: true,
-            length: { minimum: 5 }
-        }
-    }
+    totalItemsPrice: Ember.computed('order.items.[]', function() {
+        var items = this.get('order.items');
+        var totalPrice = 0;
+        items.forEach(function(item) {
+            totalPrice += item.get('price');
+        });
+        return totalPrice.toFixed(2);
+    })
 });

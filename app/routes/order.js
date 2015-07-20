@@ -27,6 +27,11 @@ export default Ember.Route.extend({
         return order;
     },
     setupController(controller, model) {
-        controller.set("order", model)
-    }
+        var deliveryMethods = this.store.find('deliveryMethod');
+        controller.set("order", model);
+        // Not a nice solution. We get 'all' delivery methods upfront (clearly impractical). 
+        // Should query on country and make it re-query when country is changed. Which should be simple in Ember
+        // but I can't figure it.
+        controller.set("deliveryMethods", deliveryMethods);
+    },
 });
