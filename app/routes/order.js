@@ -34,4 +34,18 @@ export default Ember.Route.extend({
         // but I can't figure it.
         controller.set("deliveryMethods", deliveryMethods);
     },
+    actions: {
+        setDeliveryMethod: function(deliveryMethod) {
+            var order = this.modelFor('order');
+            order.set('deliveryMethod', deliveryMethod);
+        },
+        setShippingAddress: function(shippingAddress) {
+            var order = this.modelFor('order');
+            order.set('shippingAddress', shippingAddress);
+        },
+        setBillingAddress: function(billingAddress) {
+            var order = this.modelFor('order');
+            order.set('billingAddress', billingAddress);
+        }
+    }
 });

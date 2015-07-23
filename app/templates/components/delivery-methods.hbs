@@ -1,8 +1,7 @@
-{{targetDeliveryMethod}}
-
 {{#each availableDeliveryMethods as |deliveryMethod|}}
     <p>
-        {{deliveryMethod.deliveryDate}} - £{{deliveryMethod.price}}
+        <input type="radio" name="deliveryMethod" value={{deliveryMethod}} {{action 'setDeliveryMethod' deliveryMethod value on="change"}} id={{deliveryMethod}}>
+        <label for={{deliveryMethod}}>{{deliveryMethod.deliveryDate}} - £{{deliveryMethod.price}}</label>
     </p>
 {{/each}}
 

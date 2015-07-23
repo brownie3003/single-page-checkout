@@ -3,15 +3,15 @@
     
     <h3>Shipping Address</h3>
     
-    {{address-book addresses=order.user.addressBook targetAddress=order.shippingAddress targetAddressName="shippingAddress"}}
+    {{address-book addresses=order.user.addressBook name="shipping" setAddress="setShippingAddress" targetAddress=order.shippingAddress}}
 
     <h3>Delivery Options</h3>
     
-    {{delivery-methods shippingCountry=order.shippingAddress.country targetDeliveryMethod=order.deliveryMethod}}
+    {{delivery-methods shippingCountry=order.shippingAddress.country targetDeliveryMethod=order.deliveryMethod setDeliveryMethod="setDeliveryMethod"}}
 
     <h3>Billing Address</h3>
     
-    {{address-book addresses=order.user.addressBook targetAddress=order.billingAddress targetAddressName="billingAddress"}}
+    {{address-book addresses=order.user.addressBook name="billing" setAddress="setBillingAddress" targetAddress=order.billingAddress}}
 </div>
 
 <div class="col-lg-4">
@@ -27,7 +27,11 @@
         Total Price: £
     </p>
     <h4>Delivery</h4>
-    blah
+    {{#if order.deliveryMethod}}
+        {{order.deliveryMethod.deliveryDate}} - £{{order.deliveryMethod.price}}
+    {{else}}
+        Select a delivery option
+    {{/if}}
     <h4>Shipping Address</h4>
     {{moo-address address=order.shippingAddress}}
     <h4>Billing Address</h4>

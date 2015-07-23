@@ -1,9 +1,12 @@
 <h4>Saved Addresses</h4>
-<ul>
-    {{#each addresses as |address|}}
-        {{address-radio address=address radioName=targetAddressName selectedAddress=targetAddress action="changeAddress"}}
-    {{/each}}
-</ul>
+{{#each addresses as |address|}}
+    <div class="radio">
+        <label>
+            <input type="radio" name={{name}} value={{address}} {{action 'setAddress' address value on="change"}} >
+            {{moo-address address=address}}
+        </label>
+    </div>
+{{/each}}
 
 <p>
     <button type="button" name="button" {{action "toggleAddNewAddress"}}>Enter a new address</button>

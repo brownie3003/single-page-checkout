@@ -8,5 +8,11 @@ export default Ember.Component.extend({
         return store.filter('deliveryMethod', function(deliveryMethod) {
             return deliveryMethod.get('shippingCountry') === shippingCountry;
         })
-    })
+    }),
+    actions : {
+        setDeliveryMethod: function(deliveryMethod) {
+            this.sendAction('setDeliveryMethod', deliveryMethod)
+            console.log("yell");
+        }
+    }
 });
