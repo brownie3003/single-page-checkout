@@ -3,7 +3,8 @@
     
     <h3>Shipping Address</h3>
     
-    {{address-book addresses=order.user.addressBook name="shipping" setAddress="setShippingAddress" targetAddress=order.shippingAddress}}
+    {{address-book addresses=order.user.addressBook name="shipping" setAddress="setShippingAddress" enterNewAddress="enterNewShippingAddress" 
+        setNewAddress="setNewShippingAddress" targetAddress=order.shippingAddress}}
 
     <h3>Delivery Options</h3>
     
@@ -11,7 +12,8 @@
 
     <h3>Billing Address</h3>
     
-    {{address-book addresses=order.user.addressBook name="billing" setAddress="setBillingAddress" targetAddress=order.billingAddress}}
+    {{address-book addresses=order.user.addressBook name="billing" setAddress="setBillingAddress" enterNewAddress="enterNewBillingAddress" 
+        setNewAddress="setNewBillingAddress" targetAddress=order.billingAddress}}
 </div>
 
 <div class="col-lg-4">
@@ -33,10 +35,17 @@
         Select a delivery option
     {{/if}}
     <h4>Shipping Address</h4>
-    {{moo-address address=order.shippingAddress}}
+    {{#if order.shippingAddress}}
+        {{moo-address address=order.shippingAddress}}
+    {{else}}
+        Please enter a valid shipping address or select a saved one.
+    {{/if}}
     <h4>Billing Address</h4>
-    {{moo-address address=order.billingAddress}}
-    {{outlet}}
+    {{#if order.billingAddress}}
+        {{moo-address address=order.billingAddress}}
+    {{else}}
+        Please enter a valid billing address or select a saved one.
+    {{/if}}
     <h4>Cart Items</h4>
     {{#each order.items as |item|}}
         <p>
@@ -44,3 +53,5 @@
         </p>
     {{/each}}
 </div>
+
+{{outlet}}

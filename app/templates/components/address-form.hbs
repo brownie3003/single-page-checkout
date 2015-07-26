@@ -1,16 +1,24 @@
-<div class="row">
-    <div class="col-lg-8 col-lg-offset-2">
-        {{#em-form model=address submit_button=false}}
-            {{em-input property="firstName" placeholder="First Name"}}
-            {{em-input property="lastName" placeholder="Last Name"}}
-            {{em-input property="companyName" placeholder="Company Name"}}
-            {{em-input property="firstLine" placeholder="First Line of Address"}}
-            {{em-input property="secondLine" placeholder="Second Line of Address"}}
-            {{em-input property="thirdLine" placeholder="Third Line of Address"}}
-            {{em-input property="city" placeholder="City"}}
-            {{em-input property="postcode" placeholder="Postcode"}}
-            {{em-input property="country" placeholder="Country"}}
-        {{/em-form}}
-        {{yield}}
+<div class="col-lg-12">
+    <form>
+        {{validated-input value=address.firstName type="text" placeHolder="First Name" errors=address.errors.firstName action="checkAddressIsValid"}}
+        {{validated-input value=address.lastName type="text" placeHolder="Last Name" errors=address.errors.lastName action="checkAddressIsValid"}}
+        {{validated-input value=address.companyName type="text" placeHolder="Company Name" errors=address.errors.companyName action="checkAddressIsValid"}}
+        {{validated-input value=address.firstLine type="text" placeHolder="First Line" errors=address.errors.firstLine action="checkAddressIsValid"}}
+        {{validated-input value=address.secondLine type="text" placeHolder="Second Line" errors=address.errors.secondLine action="checkAddressIsValid"}}
+        {{validated-input value=address.thirdLine type="text" placeHolder="Third Line" errors=address.errors.thirdLine action="checkAddressIsValid"}}
+        {{validated-input value=address.city type="text" placeHolder="City" errors=address.errors.city action="checkAddressIsValid"}}
+        {{validated-input value=address.state type="text" placeHolder="State" errors=address.errors.state action="checkAddressIsValid"}}
+        {{validated-input value=address.postcode type="text" placeHolder="Postcode" errors=address.errors.postcode action="checkAddressIsValid"}}
+        {{validated-input value=address.country type="text" placeHolder="Country" errors=address.errors.country action="checkAddressIsValid"}}
+    </form>
+    <div class="row">
+        <div class="col-lg-8">
+            <p>
+                Address Valid? {{#if address.isValid}}Yes{{else}}No{{/if}}
+            </p>
+        </div>
+        <div class="col-lg-4">
+            <button type="button" name="button">Save Address</button>
+        </div>
     </div>
 </div>

@@ -2,18 +2,20 @@
 {{#each addresses as |address|}}
     <div class="radio">
         <label>
-            <input type="radio" name={{name}} value={{address}} {{action 'setAddress' address value on="change"}} >
+            <input type="radio" name={{name}} value={{address}} {{action 'selectSavedAddress' address on="change"}} checked={{eq address targetAddress}}>
             {{moo-address address=address}}
         </label>
     </div>
 {{/each}}
+<div class="radio">
+    <label>
+        <input type="radio" name={{name}} value="" {{action 'enterNewAddress' on="change"}}>
+        Enter new address
+    </label>
+</div>
 
-<p>
-    <button type="button" name="button" {{action "toggleAddNewAddress"}}>Enter a new address</button>
-</p>
-
-{{#if addNewAddress}}
-    {{address-form address=shippingAddress}}
+{{#if showAddressEntryForm}}
+    {{address-form address=newAddress setAddress="setAddress"}}
 {{/if}}
 
 {{yield}}

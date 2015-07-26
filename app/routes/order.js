@@ -29,16 +29,16 @@ export default Ember.Route.extend({
     setupController(controller, model) {
         var deliveryMethods = this.store.find('deliveryMethod');
         controller.set("order", model);
-        // Not a nice solution. We get 'all' delivery methods upfront (clearly impractical). 
-        // Should query on country and make it re-query when country is changed. Which should be simple in Ember
-        // but I can't figure it.
-        controller.set("deliveryMethods", deliveryMethods);
     },
     actions: {
         setDeliveryMethod: function(deliveryMethod) {
             var order = this.modelFor('order');
             order.set('deliveryMethod', deliveryMethod);
         },
+        // Surely some refactoring can be done here with shipping/billing
+        // if only I had some tests to ensure refactoring didn't break the code... 
+        // TODO write route and component tests
+        // TODO refactor this code.
         setShippingAddress: function(shippingAddress) {
             var order = this.modelFor('order');
             order.set('shippingAddress', shippingAddress);
@@ -46,6 +46,20 @@ export default Ember.Route.extend({
         setBillingAddress: function(billingAddress) {
             var order = this.modelFor('order');
             order.set('billingAddress', billingAddress);
+        },
+        // All we do here is clear the shipping address. It represents the user telling us they are 
+        // going to submit a new address, but not an actual address.
+        // We need to wait for a valid  address before setting it on the order.
+        enterNewShippingAddress: function() {
+            var order = this.modelFor('order');
+            this.send('clearAddress', order, 'shippingAddress');
+        },
+        enterNewBillingAddress: function() {
+            var order = this.modelFor('order');
+            this.send('clearAddress', order, 'billingAddress')
+        },
+        clearAddress: function(order, addressType) {
+            order.set(addressType, null);
         }
     }
 });

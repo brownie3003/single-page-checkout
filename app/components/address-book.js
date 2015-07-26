@@ -1,25 +1,28 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-    addNewAddress: false,
-    // This does not work. Doesn't make the currentAddress checked reliably, think it interferes with native HTML actions.
-    currentAddress: Ember.computed('addresses.@each', 'targetAddress', function() {
-        var currentAddress = this.get('targetAddress');
-        var addresses = this.get('addresses');
-        return addresses.map(function(address) {
-            if (address === currentAddress) {
-                address.set('currentAddress', true);
-            } else {
-                address.set('currentAddress', false);
-            }
-        });
-    }),
+    store: Ember.inject.service(),
+    showAddressEntryForm: false,
+    newAddress: null,
     actions: {
-        toggleAddNewAddress: function(){
-            this.toggleProperty('addNewAddress');
+        // User selects an address from their saved addresses
+        selectSavedAddress: function(address){
+            this.send('hideAddressEntryForm');
+            this.send('setAddress', address);
+        },
+        // User attempts to enter new address, clear the current address and create a new record instance.
+        enterNewAddress: function() {
+            var store = this.get('store');
+            var newAddress = store.createRecord('address');
+            this.set('showAddressEntryForm', true);
+            this.set('newAddress', newAddress);
+            this.sendAction('enterNewAddress');
         },
         setAddress: function(address) {
             this.sendAction('setAddress', address);
+        },
+        hideAddressEntryForm: function() {
+            this.set('showAddressEntryForm', false);
         }
     }
 });

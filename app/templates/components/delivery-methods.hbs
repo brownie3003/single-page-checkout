@@ -1,3 +1,6 @@
+<p>
+    Which country are we sending your package to? {{shippingCountry}}
+</p>
 {{#each availableDeliveryMethods as |deliveryMethod|}}
     <p>
         <input type="radio" name="deliveryMethod" value={{deliveryMethod}} {{action 'setDeliveryMethod' deliveryMethod value on="change"}} id={{deliveryMethod}}>

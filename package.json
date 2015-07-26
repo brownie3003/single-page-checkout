@@ -16,7 +16,7 @@
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "Andy Brown",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.2",
@@ -34,11 +34,9 @@
     "ember-data": "1.0.0-beta.18",
     "ember-disable-proxy-controllers": "^1.0.0",
     "ember-export-application-global": "^1.0.2",
-    "ember-idx-forms": "^0.6.0",
-    "ember-radio-button": "1.0.6",
+    "ember-truth-helpers": "1.0.0",
     "ember-validations": "^2.0.0-alpha.4"
   },
   "dependencies": {
-    "ember-radio-buttons": "^4.0.1"
   }
 }
