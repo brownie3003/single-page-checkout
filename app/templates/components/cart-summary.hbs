@@ -1,0 +1,37 @@
+<h2>Summary</h2>
+<h4>Price</h4>
+<p>
+    Item Price: £{{totalItemsPrice}}
+</p>
+<p>
+    Delivery Price: £{{order.deliveryMethod.price}}
+</p>
+<p>
+    Total Price: £{{totalPrice}}
+</p>
+<h4>Delivery</h4>
+{{#if order.deliveryMethod}}
+    {{order.deliveryMethod.deliveryDate}} - £{{order.deliveryMethod.price}}
+{{else}}
+    Select a delivery option
+{{/if}}
+<h4>Shipping Address</h4>
+{{#if order.shippingAddress}}
+    {{moo-address address=order.shippingAddress}}
+{{else}}
+    Please enter a valid shipping address or select a saved one.
+{{/if}}
+<h4>Billing Address</h4>
+{{#if order.billingAddress}}
+    {{moo-address address=order.billingAddress}}
+{{else}}
+    Please enter a valid billing address or select a saved one.
+{{/if}}
+<h4>Cart Items</h4>
+{{#each order.items as |item|}}
+    <p>
+        {{item.quantity}} x {{item.description}}
+    </p>
+{{/each}}
+
+{{yield}}
