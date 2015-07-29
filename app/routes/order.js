@@ -27,7 +27,6 @@ export default Ember.Route.extend({
         return order;
     },
     setupController(controller, model) {
-        var deliveryMethods = this.store.find('deliveryMethod');
         controller.set("order", model);
     },
     actions: {
