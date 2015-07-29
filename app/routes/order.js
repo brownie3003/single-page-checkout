@@ -60,6 +60,12 @@ export default Ember.Route.extend({
         },
         clearAddress: function(order, addressType) {
             order.set(addressType, null);
+        },
+        saveAddress: function(address) {
+            var order = this.modelFor('order');
+            var user = order.get('user');
+            address.set('user', user);
+            address.save();
         }
     }
 });

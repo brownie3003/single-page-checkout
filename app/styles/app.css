@@ -1,0 +1,17 @@
+header {
+    background-color: #00945E;
+    text-align: center;
+    padding: 5px;
+}
+
+.radio {
+    padding: 20px;
+}
+
+.active {
+    background-color: #f1f1f1;
+}
+
+form {
+    padding-top: 15px;
+}

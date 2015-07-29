@@ -1,5 +1,9 @@
 <p>
-    Which country are we sending your package to? {{shippingCountry}}
+    {{#if shippingCountry}}
+        Which country are we sending your package to? {{shippingCountry}}
+    {{else}}
+        When you enter a delivery address, delivery options will be displayed.
+    {{/if}}
 </p>
 {{#each availableDeliveryMethods as |deliveryMethod|}}
     <p>

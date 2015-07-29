@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+    classNames: ['address-book'],
     store: Ember.inject.service(),
     showAddressEntryForm: false,
     newAddress: null,
@@ -23,6 +24,10 @@ export default Ember.Component.extend({
         },
         hideAddressEntryForm: function() {
             this.set('showAddressEntryForm', false);
+        },
+        saveAddress: function(address) {
+            this.send('hideAddressEntryForm');
+            this.sendAction('saveAddress', address);
         }
     }
 });

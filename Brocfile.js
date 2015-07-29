@@ -10,6 +10,8 @@ var app = new EmberApp();
 app.import(app.bowerDirectory + '/bootstrap/dist/js/bootstrap.js');
 app.import(app.bowerDirectory + '/bootstrap/dist/css/bootstrap.css');
 app.import(app.bowerDirectory + '/momentjs/moment.js')
+// app.import(app.bowerDirectory + '/moo-toolkit/dist/stylesheets/template.css')
+// app.import(app.bowerDirectory + '/moo-toolkit/dist/fonts/')
 //
 // If you need to use different assets in different
 // environments, specify an object as the first parameter. That

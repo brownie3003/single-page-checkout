@@ -8,6 +8,10 @@ export default Ember.Component.extend({
             if (address.get('isValid')) {
                 this.sendAction('setAddress', address);
             }
+        },
+        addAddress: function() {
+            var address = this.get('address');
+            this.sendAction('saveAddress', address);
         }
     }
 });
