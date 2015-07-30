@@ -1,9 +1,21 @@
+<h4>Cart Items</h4>
+{{#each order.items as |item|}}
+    <p>
+        {{item.quantity}} x {{item.description}}
+    </p>
+{{/each}}
+
 <h4>Price</h4>
 <p>
     Item Price: £{{totalItemsPrice}}
 </p>
 <p>
-    Delivery Price: £{{order.deliveryMethod.price}}
+    Delivery Price: 
+    {{#if order.deliveryMethod}}
+        £{{order.deliveryMethod.price}}
+    {{else}}
+        -
+    {{/if}}
 </p>
 <p>
     Total Price: £{{totalPrice}}
@@ -12,7 +24,7 @@
 {{#if order.deliveryMethod}}
     {{order.deliveryMethod.deliveryDate}} - £{{order.deliveryMethod.price}}
 {{else}}
-    Select a delivery option
+    Enter a valid shipping address to see delivery options
 {{/if}}
 <h4>Shipping Address</h4>
 {{#if order.shippingAddress}}
@@ -26,11 +38,5 @@
 {{else}}
     Please enter a valid billing address or select a saved one.
 {{/if}}
-<h4>Cart Items</h4>
-{{#each order.items as |item|}}
-    <p>
-        {{item.quantity}} x {{item.description}}
-    </p>
-{{/each}}
 
 {{yield}}

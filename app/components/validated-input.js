@@ -2,11 +2,16 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
     classNames: ['form-group'],
-    showErrors: false,
+    classNameBindings: ['hasError'],
+    hasError: false,
     actions: {
-        showErrors: function() {
+        checkForErrors: function() {
             var errors = this.get('errors');
-            this.set('showErrors', true);
+            if (errors.length) {
+                this.set('hasError', true);
+            } else {
+                this.set('hasError', false);
+            }
             this.sendAction();
         }
     }

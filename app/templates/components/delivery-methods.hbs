@@ -1,15 +1,18 @@
 <p>
     {{#if shippingCountry}}
-        Which country are we sending your package to? {{shippingCountry}}
+        We are shipping to {{shippingCountry}}.
     {{else}}
         When you enter a delivery address, delivery options will be displayed.
     {{/if}}
 </p>
+
 {{#each availableDeliveryMethods as |deliveryMethod|}}
-    <p>
-        <input type="radio" name="deliveryMethod" value={{deliveryMethod}} {{action 'setDeliveryMethod' deliveryMethod value on="change"}} id={{deliveryMethod}}>
-        <label for={{deliveryMethod}}>{{deliveryMethod.deliveryDate}} - £{{deliveryMethod.price}}</label>
-    </p>
+    <div class="radio {{if (eq deliveryMethod targetDeliveryMethod) 'active'}}">
+        <label>
+            <input type="radio" name="deliveryMethods" value={{deliveryMethod}} {{action 'setDeliveryMethod' deliveryMethod on="change"}} checked={{eq deliveryMethod targetDeliveryMethod}}>
+            {{deliveryMethod.deliveryDate}} - £{{deliveryMethod.price}}
+        </label>
+    </div>
 {{/each}}
 
 {{yield}}

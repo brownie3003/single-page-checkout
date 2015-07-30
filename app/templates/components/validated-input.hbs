@@ -1,5 +1,2 @@
-{{input value=value type=type class="form-control" placeholder=placeHolder focus-out="showErrors"}}
-{{#if showErrors}}
-    {{errors}}
-{{/if}}
- {{yield}}
+{{input value=value type=type class="form-control" placeholder=placeHolder focus-out="checkForErrors"}}
+{{yield}}
