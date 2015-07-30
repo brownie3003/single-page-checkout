@@ -44,7 +44,7 @@ export default DS.Model.extend(EmberValidations, {
         country: {
             presence: true,
             inclusion: {
-                in: ['uk', 'us'],
+                in: ['UK', 'USA'],
                 message: "For this demo, only 'uk' or 'us' will be accepted for the country. (Yes lowercase becasue I'm a lazy ballbag.)"
             }
         }
@@ -59,7 +59,7 @@ export default DS.Model.extend(EmberValidations, {
             firstLine: "123 Dalston",
             city: "London",
             postcode: "E8 4RQ",
-            country: "uk",
+            country: "UK",
             orders: [1],
             user: 1
         },
@@ -67,10 +67,10 @@ export default DS.Model.extend(EmberValidations, {
             id: 2,
             firstName: "Andy",
             lastName: "Brown",
-            firstLine: "123 Bethnal Green",
-            city: "London",
-            postcode: "E2 4RQ",
-            country: "us",
+            firstLine: "123 Daily Planet",
+            city: "Boston",
+            postcode: "112312",
+            country: "USA",
             orders: [1],
             user: 1
         }

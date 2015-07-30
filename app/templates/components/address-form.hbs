@@ -13,7 +13,9 @@
                     {{#x-select class="form-control" action="selectAddressServiceAddress"}}
                         <option selected disabled>Choose your address</option>
                         {{#each addresses as |address|}}
-                            {{#x-option value=address}}{{moo-address address=address}}{{/x-option}}
+                            {{#x-option value=address}}
+                                {{moo-address address=address}}
+                            {{/x-option}}
                         {{/each}}
                     {{/x-select}}
                 </div>

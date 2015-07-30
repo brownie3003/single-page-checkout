@@ -8,13 +8,13 @@ export default Ember.Service.extend({
                 firstLine: "Cribbage Causeway",
                 city: "Dublin",
                 postcode: postcode,
-                country: "uk"
+                country: "UK"
             }, {
                 firstLine: "New Cribbage Causeway",
                 secondLine: "example",
                 city: "Boston",
                 postcode: postcode,
-                country: "us"
+                country: "USA"
             }
         ]
     }
