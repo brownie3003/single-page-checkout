@@ -31,16 +31,16 @@
             {{validated-input value=address.country type="text" placeHolder="Country" errors=address.errors.country action="checkAddressIsValid"}}
         {{/if}}
     </form>
-    {{#if address.isValid}}
+    {{!-- {{#if address.isValid}}
         <div class="row">
-            {{!-- <div class="col-lg-8">
+            <div class="col-lg-8">
                 <p>
                     Address Valid? {{#if address.isValid}}Yes{{else}}No{{/if}}
                 </p>
-            </div> --}}
+            </div>
             <div class="col-lg-12">
                 <input type="button" class="btn btn-primary" value="Save Address" disabled={{address.isInvalid}} {{action "addAddress"}}>
             </div>
         </div>
-    {{/if}}
+    {{/if}} --}}
 </div>
