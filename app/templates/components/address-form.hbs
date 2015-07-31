@@ -29,6 +29,7 @@
             {{validated-input value=address.state type="text" placeHolder="State" errors=address.errors.state action="checkAddressIsValid"}}
             {{validated-input value=address.postcode type="text" placeHolder="Postcode" errors=address.errors.postcode action="checkAddressIsValid"}}
             {{validated-input value=address.country type="text" placeHolder="Country" errors=address.errors.country action="checkAddressIsValid"}}
+            <button type="button" class="btn btn-default" {{action "showAddressService"}}>Search for Address</button>
         {{/if}}
     </form>
     {{!-- {{#if address.isValid}}

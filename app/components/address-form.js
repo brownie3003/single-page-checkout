@@ -34,7 +34,13 @@ export default Ember.Component.extend({
             $.each(selectedAddress, function(key, value) {
                 address.set(key, value);
             });
+            this.set('showAddressService', false);
+            this.set('showFullForm', true);
             this.send('checkAddressIsValid');
+        },
+        showAddressService: function() {
+            this.set('showAddressService', true);
+            this.set('showFullForm', false);
         }
     }
 });
