@@ -7,12 +7,10 @@
 </p>
 
 {{#each availableDeliveryMethods as |deliveryMethod|}}
-    <div class="radio {{if (eq deliveryMethod targetDeliveryMethod) 'active'}}">
-        <label>
-            <input type="radio" name="deliveryMethods" value={{deliveryMethod}} {{action 'setDeliveryMethod' deliveryMethod on="change"}} checked={{eq deliveryMethod targetDeliveryMethod}}>
-            {{deliveryMethod.deliveryDate}} - £{{deliveryMethod.price}}
-        </label>
-    </div>
+    <label class="radio {{if (eq deliveryMethod targetDeliveryMethod) 'active'}}">
+        <input type="radio" name="deliveryMethods" value={{deliveryMethod}} {{action 'setDeliveryMethod' deliveryMethod on="change"}} checked={{eq deliveryMethod targetDeliveryMethod}}>
+        {{deliveryMethod.deliveryDate}} - £{{deliveryMethod.price}}
+    </label>
 {{/each}}
 
 {{yield}}

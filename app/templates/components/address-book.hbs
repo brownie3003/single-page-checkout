@@ -1,18 +1,14 @@
 {{#each addresses as |address|}}
-    <div class="radio {{if (eq address targetAddress) 'active'}}">
-        <label>
-            <input type="radio" name={{name}} value={{address}} {{action 'selectSavedAddress' address on="change"}} checked={{eq address targetAddress}}>
-            {{moo-address address=address}}
-        </label>
-    </div>
-{{/each}}
-<div class="radio {{if (or (eq newAddress targetAddress) (not targetAddress)) 'active'}}">
-    <label>
-        <input type="radio" name={{name}} value="" {{action 'enterNewAddress' on="change"}}>
-        Enter new address
+    <label class="radio {{if (eq address targetAddress) 'active'}}">
+        <input type="radio" name={{name}} value={{address}} {{action 'selectSavedAddress' address on="change"}} checked={{eq address targetAddress}}>
+        {{moo-address address=address}}
     </label>
-    {{#if showAddressEntryForm}}
-        {{address-form address=newAddress setAddress="setAddress" saveAddress=saveAddress}}
-    {{/if}}
-</div>
+{{/each}}
+<label class="radio {{if (or (eq newAddress targetAddress) (not targetAddress)) 'active'}}">
+    <input type="radio" name={{name}} value="" {{action 'enterNewAddress' on="change"}}>
+    Enter new address
+</label>
+{{#if showAddressEntryForm}}
+    {{address-form address=newAddress setAddress="setAddress" saveAddress=saveAddress}}
+{{/if}}
 {{yield}}
