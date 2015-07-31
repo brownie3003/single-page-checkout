@@ -9,8 +9,5 @@ export default Ember.Service.extend({
                 return deliveryMethod.get('shippingCountry') === country;
             });
         });
-        // return store.filter('deliveryMethod', function(deliveryMethod) {
-        //     return deliveryMethod.get('shippingCountry') === country;
-        // });
     }
 });

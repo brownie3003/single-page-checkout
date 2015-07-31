@@ -16,6 +16,6 @@ export default Ember.Service.extend({
                 postcode: postcode,
                 country: "USA"
             }
-        ]
+        ];
     }
 });

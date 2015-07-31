@@ -25,7 +25,7 @@ export default Ember.Component.extend({
 
     actions : {
         setDeliveryMethod: function(deliveryMethod) {
-            this.sendAction('setDeliveryMethod', deliveryMethod)
+            this.sendAction('setDeliveryMethod', deliveryMethod);
         }
     }
 });

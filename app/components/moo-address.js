@@ -13,7 +13,7 @@ export default Ember.Component.extend({
         'address.postcode',
         'address.country',
         function() {
-            let address = this.get('address')
+            let address = this.get('address');
             let firstName = address.get('firstName') ? address.get('firstName') + " " : "";
             let lastName = address.get('lastName') ? address.get('lastName') + ", " : "";
             let companyName = address.get('companyName') ? address.get('companyName') + ", " : "";
