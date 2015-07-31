@@ -55,7 +55,7 @@ export default Ember.Route.extend({
         },
         enterNewBillingAddress: function() {
             var order = this.modelFor('order');
-            this.send('clearAddress', order, 'billingAddress')
+            this.send('clearAddress', order, 'billingAddress');
         },
         clearAddress: function(order, addressType) {
             order.set(addressType, null);
