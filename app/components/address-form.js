@@ -22,7 +22,7 @@ export default Ember.Component.extend({
             
             let addresses = addressService.findByPostCode(postcode);
             // Lame, tired, make address object Ember objects here.
-            // We need to do this for display in moo-address component, but probably a better way.
+            // TODO We need to do this for display in moo-address component, but probably a better way.
             let emberAddresses = []
             $.each(addresses, function(index, address) {
                 emberAddresses.push(Ember.Object.create(address));
@@ -31,8 +31,10 @@ export default Ember.Component.extend({
         },
         selectAddressServiceAddress: function(selectedAddress) {
             let address = this.get('address');
-            $.each(selectedAddress, function(key, value) {
-                address.set(key, value);
+            // TODO find a nicer way to combine this Ember Object with the Address instance.
+            let keys = ['firstLine', 'secondLine', 'thirdLine', 'city', 'state', 'postcode', 'country']
+            keys.forEach(function(value) {
+                address.set(value, selectedAddress.get(value));
             });
             this.set('showAddressService', false);
             this.set('showFullForm', true);

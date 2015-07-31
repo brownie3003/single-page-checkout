@@ -6,7 +6,7 @@
         </label>
     </div>
 {{/each}}
-<div class="radio {{if (not targetAddress) 'active'}}">
+<div class="radio {{if (or (eq newAddress targetAddress) (not targetAddress)) 'active'}}">
     <label>
         <input type="radio" name={{name}} value="" {{action 'enterNewAddress' on="change"}}>
         Enter new address

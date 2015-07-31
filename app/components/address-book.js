@@ -28,6 +28,7 @@ export default Ember.Component.extend({
         saveAddress: function(address) {
             this.send('hideAddressEntryForm');
             this.sendAction('saveAddress', address);
+            this.set('newAddress', null);
         }
     }
 });
