@@ -23,3 +23,16 @@ header {
         padding-top: 15px;
     }
 }
+
+.item-details {
+    .original-price {
+        text-decoration: line-through;
+    }
+    .product-image {
+        text-align: center;
+        padding: 20px;
+        img {
+            width: 100%;
+        }
+    }
+}

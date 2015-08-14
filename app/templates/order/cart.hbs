@@ -1,0 +1,10 @@
+<div class="col-md-8">
+    <h2>Cart</h2>
+    <div class="row">
+        <div class="col-md-12">
+            {{#each order.items as |item|}}
+                {{item-details item=item}}
+            {{/each}}
+        </div>
+    </div>
+</div>

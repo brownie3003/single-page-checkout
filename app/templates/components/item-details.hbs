@@ -1,0 +1,30 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>{{item.title}}</h3>
+                <span>{{item.description}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                {{#x-select value= item.quantity class="form-control"}}
+                    {{#each quantities as |quantity|}}
+                        {{#x-option value=quantity}}
+                            {{quantity}}
+                        {{/x-option}}
+                    {{/each}}
+                {{/x-select}}
+            </div>
+            <div class="col-xs-6">
+                {{moo-price originalPrice=item.originalPrice finalPrice=item.finalPrice}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 product-image">
+                <img src="{{item.image}}" alt="" />
+            </div>
+        </div>
+    </div>
+</div>
+{{yield}}
