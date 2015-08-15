@@ -1,10 +1,37 @@
-<div class="col-md-8">
-    <h2>Cart</h2>
-    <div class="row">
-        <div class="col-md-12">
-            {{#each order.items as |item|}}
-                {{item-details item=item}}
-            {{/each}}
+<div class="row">
+    <div class="col-md-12">
+        <h2>Cart</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <div class="row">
+            <div class="col-md-12">
+                {{#each order.items as |item|}}
+                    {{item-details item=item}}
+                {{/each}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        {{delivery-methods shippingCountry=order.shippingAddress.country targetDeliveryMethod=order.deliveryMethod setDeliveryMethod="setDeliveryMethod"}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="row">
+            <div class="col-md-12">
+                {{promo-code}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                {{order-total order=order}}
+            </div>
         </div>
     </div>
 </div>

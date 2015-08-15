@@ -1,21 +1,21 @@
 import Ember from 'ember';
+const { computed } = Ember;
 
 export default Ember.Route.extend({
     model: function() {
-        // return this.store.find('order', 1);
-        var store = this.store;
-        var order = store.createRecord('order');
-        // var shippingAddress = store.createRecord('address');
-        // order.set('shippingAddress', shippingAddress);
+        let store = this.store;
+        let order = store.createRecord('order');
 
         store.find('user', 1).then(function (user) {
             var defaultAddress = user.get('addressBook').get('firstObject');
             // should check whether an address exists, if not create a new record.
+            // For prototype assume user has a saved address which can inform about
+            // shipping country for delivery methods.
             order.set('shippingAddress', defaultAddress);
             order.set('billingAddress', defaultAddress);
             order.set('user', user);
         });
-        
+
         store.find('item', 1).then(function (item) {
             order.get('items').pushObject(item);
         });
@@ -23,12 +23,34 @@ export default Ember.Route.extend({
         store.find('item', 2).then(function (item) {
             order.get('items').pushObject(item);
         });
+        
+        store.find('delivery-method').then(function (deliveryMethods) {
+            let defaultDeliveryMethod = deliveryMethods.get('firstObject');
+            order.set('deliveryMethod', defaultDeliveryMethod);
+        });
 
         return order;
+    },
+    afterModel: function(order) {
+        // this.store.find('delivery-method').then(function (deliveryMethods) {
+        //     let defaultDeliveryMethod = deliveryMethods.get('firstObject');
+        //     order.set('deliveryMethod', defaultDeliveryMethod);
+        // });
     },
     setupController(controller, model) {
         controller.set("order", model);
     },
+    // getDefaultDeliveryMethod: computed(function(order, deliveryMethods) {
+    //     let shippingCountry = this.get('order').get('shippingAddress').get('country');
+    //     let cheapestMethod = deliveryMethods.get('first');
+    //     deliveryMethods.forEach(function(deliveryMethod){
+    //         if (deliveryMethod.get('price') < cheapestMethod.get('price')) {
+    //             cheapestMethod = deliveryMethod;
+    //         }
+    //     });
+    //     
+    //     return cheapestMethod;
+    // }),
     actions: {
         setDeliveryMethod: function(deliveryMethod) {
             var order = this.modelFor('order');

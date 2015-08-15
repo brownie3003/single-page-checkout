@@ -1,0 +1,61 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h4>Order Total</h4>
+        <div class="row">
+            <div class="col-xs-6">
+                <strong>Item sub-total</strong>
+            </div>
+            <div class="col-xs-6 text-right">
+                {{moo-price originalPrice=originalItemsPrice finalPrice=finalItemsPrice}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <strong>Shipping Price</strong>
+            </div>
+            <div class="col-xs-6 text-right">
+                {{moo-price finalPrice=order.deliveryMethod.price}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <strong>VAT</strong>
+            </div>
+            <div class="col-xs-6 text-right">
+                {{moo-price finalPrice=tax}}
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-xs-6">
+                <strong>Total Price</strong>
+            </div>
+            <div class="col-xs-6 text-right">
+                {{moo-price finalPrice=totalPrice}}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{{!-- <h4>Cart Items</h4>
+<h4>Delivery</h4>
+{{#if order.deliveryMethod}}
+    {{order.deliveryMethod.deliveryDate}} - £{{order.deliveryMethod.price}}
+{{else}}
+    Enter a valid shipping address to see delivery options
+{{/if}}
+<h4>Shipping Address</h4>
+{{#if order.shippingAddress}}
+    {{moo-address address=order.shippingAddress}}
+{{else}}
+    Please enter a valid shipping address or select a saved one.
+{{/if}}
+<h4>Billing Address</h4>
+{{#if order.billingAddress}}
+    {{moo-address address=order.billingAddress}}
+{{else}}
+    Please enter a valid billing address or select a saved one.
+{{/if}} --}}
+
+{{yield}}
