@@ -1,0 +1,12 @@
+<div class="col-xs-12">
+    <form class="form-group" action="index.html" method="post">
+        {{validated-input type="text" placeHolder="First Name"}}
+        {{validated-input type="text" placeHolder="Last Name"}}
+        {{validated-input type="text" placeHolder="Email"}}
+        {{validated-input type="text" placeHolder="Password"}}
+        {{validated-input type="text" placeHolder="Repeat Password"}}
+        {{#link-to 'order.shipping-address'}}<button type="submit" class="btn btn-moo btn-block">Sign up</button>{{/link-to}}
+    </form>
+</div>
+
+{{yield}}

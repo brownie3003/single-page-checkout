@@ -1,0 +1,30 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h3>
+            Be our guest
+        </h3>
+        <p>
+            You are currently checking out as a guest. Please select a sign in method.
+        </p>
+        {{#if showSignIn}}
+            {{sign-in-form}}
+        {{/if}}
+        {{#if showSignUp}}
+            {{sign-up-form}}
+        {{/if}}
+        {{#if showGuestCheckout}}
+            {{guest-checkout-form}}
+        {{/if}}
+        {{#if (not showSignIn)}}
+            <button type="button" name="button" class="btn btn-default btn-block" {{action "showSignIn"}}>Sign In with Email</button>
+        {{/if}}
+        {{#if (not showSignUp)}}
+            <button type="button" name="button" class="btn btn-default btn-block" {{action "showSignUp"}}>Sign Up with Email</button>
+        {{/if}}
+        {{#if (not showGuestCheckout)}}
+            <button type="button" name="button" class="btn btn-default btn-block" {{action "showGuestCheckout"}}>Continue with Guest Checkout</button>
+        {{/if}}
+    </div>
+</div>
+
+{{yield}}

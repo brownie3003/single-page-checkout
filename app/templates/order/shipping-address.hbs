@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-md-12">
+        <h2>Shipping Address</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        {{address-book addresses=order.user.addressBook name="shipping" setAddress="setShippingAddress" enterNewAddress="enterNewShippingAddress" 
+                            setNewAddress="setNewShippingAddress" saveAddress="saveAddress" targetAddress=order.shippingAddress}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="row">
+            <div class="col-md-12">
+                {{promo-code}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                {{order-total order=order}}
+            </div>
+        </div>
+    </div>
+</div>

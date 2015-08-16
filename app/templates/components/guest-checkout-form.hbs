@@ -1,0 +1,11 @@
+<div class="col-xs-12">
+    <p>
+        We need your email for guest checkout.
+    </p>
+    <form class="form-group" action="index.html" method="post">
+        {{validated-input type="text" placeHolder="Email"}}
+        {{#link-to 'order.shipping-address'}}<button type="submit" class="btn btn-moo btn-block">Continue as Guest</button>{{/link-to}}
+    </form>
+</div>
+
+{{yield}}
