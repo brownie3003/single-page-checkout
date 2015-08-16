@@ -9,7 +9,22 @@ var app = new EmberApp();
 
 app.import(app.bowerDirectory + '/bootstrap/dist/js/bootstrap.js');
 app.import(app.bowerDirectory + '/bootstrap/dist/css/bootstrap.css');
-app.import(app.bowerDirectory + '/momentjs/moment.js')
+app.import(app.bowerDirectory + '/bootstrap/dist/fonts/glyphicons-halflings-regular.eot', {
+  destDir: 'fonts'
+});
+app.import(app.bowerDirectory + '/bootstrap/dist/fonts/glyphicons-halflings-regular.svg', {
+  destDir: 'fonts'
+});
+app.import(app.bowerDirectory + '/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf', {
+  destDir: 'fonts'
+});
+app.import(app.bowerDirectory + '/bootstrap/dist/fonts/glyphicons-halflings-regular.woff', {
+  destDir: 'fonts'
+});
+app.import(app.bowerDirectory + '/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2', {
+  destDir: 'fonts'
+});
+app.import(app.bowerDirectory + '/momentjs/moment.js');
 // app.import(app.bowerDirectory + '/moo-toolkit/dist/stylesheets/template.css')
 // app.import(app.bowerDirectory + '/moo-toolkit/dist/fonts/')
 //
