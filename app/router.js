@@ -11,6 +11,7 @@ Router.map(function() {
         this.route('shipping-address');
         this.route('shipping-options');
     });
+    this.route('sign-in');
 });
 
 export default Router;
