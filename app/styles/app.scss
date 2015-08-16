@@ -1,42 +1,12 @@
+@import 'components/delivery-method';
+@import 'components/address-book';
+@import 'components/moo-price';
+@import 'components/item-details';
+@import 'bootstrap-customisation/btn-moo';
+
+
 header {
     background-color: #00945E;
     text-align: center;
     padding: 10px;
-}
-
-.address-book, .delivery-methods {
-    .radio {
-        padding: 20px;
-        cursor: pointet;
-        font-weight: normal;
-        label {
-            padding-left: 0;
-        }
-        input[type='radio'] {
-            display: none;
-        }
-    }
-    .active {
-        background-color: #f1f1f1;
-    }
-    form {
-        padding-top: 15px;
-    }
-}
-
-.moo-price {
-    .original-price {
-        text-decoration: line-through;
-    }
-}
-
-.item-details {
-    .product-image {
-        text-align: center;
-        padding: 20px;
-        img {
-            max-height: 200px;
-            max-width: 100%;
-        }
-    }
 }

@@ -23,19 +23,8 @@ export default Ember.Route.extend({
         store.find('item', 2).then(function (item) {
             order.get('items').pushObject(item);
         });
-        
-        store.find('delivery-method').then(function (deliveryMethods) {
-            let defaultDeliveryMethod = deliveryMethods.get('firstObject');
-            order.set('deliveryMethod', defaultDeliveryMethod);
-        });
 
         return order;
-    },
-    afterModel: function(order) {
-        // this.store.find('delivery-method').then(function (deliveryMethods) {
-        //     let defaultDeliveryMethod = deliveryMethods.get('firstObject');
-        //     order.set('deliveryMethod', defaultDeliveryMethod);
-        // });
     },
     setupController(controller, model) {
         controller.set("order", model);
@@ -87,6 +76,10 @@ export default Ember.Route.extend({
             var user = order.get('user');
             address.set('user', user);
             address.save();
+        },
+        setShippingCountry(shippingCountry) {
+            var order = this.modelFor('order');
+            order.set('shippingCountry', shippingCountry);
         }
     }
 });

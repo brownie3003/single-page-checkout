@@ -1,8 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+    model() {
+        return this.modelFor('order');
+    },
     setupController(controller, model) {
-        var order = this.modelFor('order');
-        controller.set("order", order);
-    }
+        controller.set("order", model);
+    },
 })

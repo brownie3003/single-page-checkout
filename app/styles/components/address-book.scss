@@ -1,0 +1,19 @@
+.address-book {
+    .radio {
+        padding: 20px;
+        cursor: pointet;
+        font-weight: normal;
+        label {
+            padding-left: 0;
+        }
+        input[type='radio'] {
+            display: none;
+        }
+    }
+    .active {
+        background-color: #f1f1f1;
+    }
+    form {
+        padding-top: 15px;
+    }
+}

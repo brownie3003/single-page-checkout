@@ -1,16 +1,58 @@
-<p>
-    {{#if shippingCountry}}
-        We are shipping to {{shippingCountry}}.
-    {{else}}
-        When you enter a delivery address, delivery options will be displayed.
-    {{/if}}
-</p>
-
-{{#each availableDeliveryMethods as |deliveryMethod|}}
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h4>Shipping Options</h4>
+        <p>
+            Select your country to view shipping options.
+        </p>
+        <div class="row">
+            <div class="col-xs-12">
+                {{#x-select value=shippingCountry action="setShippingCountry" class="form-control"}}
+                    {{#x-option value="UK"}}UK{{/x-option}}
+                    {{#x-option value="USA"}}USA{{/x-option}}
+                {{/x-select}}
+            </div>
+        </div>
+        <div class="row">
+            {{#if showAllDeliveryOptions}}
+                {{#each availableDeliveryMethods as |deliveryMethod|}}
+                    {{delivery-method 
+                        deliveryMethod=deliveryMethod 
+                        selectedDeliveryMethod=selectedDeliveryMethod 
+                        setDeliveryMethod="setDeliveryMethod"
+                    }}
+                {{/each}}
+            {{else}}
+                {{#each popularDeliveryMethods as |deliveryMethod|}}
+                    {{delivery-method 
+                        deliveryMethod=deliveryMethod 
+                        selectedDeliveryMethod=selectedDeliveryMethod 
+                        setDeliveryMethod="setDeliveryMethod"
+                    }}
+                {{/each}}
+            {{/if}}
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                {{#if showAllDeliveryOptions}}
+                    <button class="btn btn-default btn-block" {{action "toggleShowAllDeliveryOptions"}}>Show Most Popular Options</button>
+                {{else}}
+                    <button class="btn btn-default btn-block" {{action "toggleShowAllDeliveryOptions"}}>See More Options</button>
+                {{/if}}
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-xs-12">
+                <button class="btn btn-default btn-block">Collect your order</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{!-- {{#each availableDeliveryMethods as |deliveryMethod|}}
     <label class="radio {{if (eq deliveryMethod targetDeliveryMethod) 'active'}}">
         <input type="radio" name="deliveryMethods" value={{deliveryMethod}} {{action 'setDeliveryMethod' deliveryMethod on="change"}} checked={{eq deliveryMethod targetDeliveryMethod}}>
         {{deliveryMethod.deliveryDate}} - £{{deliveryMethod.price}}
     </label>
-{{/each}}
+{{/each}} --}}
 
 {{yield}}

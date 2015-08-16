@@ -1,0 +1,16 @@
+.delivery-method {
+    .panel {
+        cursor: pointer;
+        &:hover {
+            background-color: #E6E6E6;
+        }
+    }
+    margin-top: 15px;
+    text-align: center;
+    input[type="radio"] {
+        display: none;
+    }
+    .active {
+        background-color: #00965E;
+    }
+}
