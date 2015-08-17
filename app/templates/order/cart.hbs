@@ -44,9 +44,15 @@
     <div class="col-md-8">
         <div class="panel panel-default">
             <div class="panel-body">
-                {{#link-to 'order.sign-in'}}
-                    <button type="button" name="button" class="btn btn-block btn-moo">Checkout</button>
-                {{/link-to}}
+                {{#if order.user}}
+                    {{#link-to 'order.shipping-options'}}
+                        <button type="button" name="button" class="btn btn-block btn-moo">Checkout</button>
+                    {{/link-to}}
+                {{else}}
+                    {{#link-to 'order.sign-in'}}
+                        <button type="button" name="button" class="btn btn-block btn-moo">Checkout</button>
+                    {{/link-to}}
+                {{/if}}
             </div>
         </div>
     </div>
