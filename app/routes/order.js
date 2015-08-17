@@ -27,8 +27,13 @@ export default Ember.Route.extend({
 
         return order;
     },
+    afterModel(model) {
+        // Make sure items promise is resolved for rendering of components.
+        return model.get('items');
+    },
     setupController(controller, model) {
         controller.set("order", model);
+        controller.set("currentRoute", this.get("routeName"));
     },
     // getDefaultDeliveryMethod: computed(function(order, deliveryMethods) {
     //     let shippingCountry = this.get('order').get('shippingAddress').get('country');

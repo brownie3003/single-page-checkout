@@ -28,8 +28,6 @@ export default DS.Model.extend(EmberValidations, {
     FIXTURES: [
         {
             id: 1,
-            shippingAddress: 2,
-            billingAddress: 1,
             items: [1, 2],
             user: 1,
             shippingCountry: "UK",
