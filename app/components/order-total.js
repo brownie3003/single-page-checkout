@@ -3,15 +3,18 @@ const { computed } = Ember;
 
 export default Ember.Component.extend({
     store: Ember.inject.service(),
-    finalItemsPrice: computed('order.items.[]', function() {
+    finalItemsPrice: computed('order.items.isFulfilled', 'order.items.[]', function() {
         let items = this.get('order.items');
-        let finalItemsPrice = 0;
-        items.forEach(function(item) {
-            // For prototype we'll never have null for final price (and in reality, we should always have a price
-            // for the customer, even if it's 0)
-            finalItemsPrice += item.get('finalPrice')
-        })
-        return finalItemsPrice.toFixed(2);
+        // Check the promise has returned.
+        if (items.get('isFulfilled')) {
+            let finalItemsPrice = 0;
+            items.forEach(function(item) {
+                // For prototype we'll never have null for final price (and in reality, we should always have a price
+                // for the customer, even if it's 0)
+                finalItemsPrice += item.get('finalPrice')
+            });
+            return finalItemsPrice.toFixed(2);
+        }
     }),
     originalItemsPrice: computed('order.items.[]', 'finalItemsPrice', function() {
         let items = this.get('order.items');

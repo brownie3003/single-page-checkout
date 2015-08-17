@@ -1,0 +1,11 @@
+<h2>Select a Scenario</h2>
+
+<ul>
+    {{#each model as |order|}}
+        {{#link-to 'order.cart' order}}
+            <li>
+                {{order.mooScenarioDescription}}
+            </li>
+        {{/link-to}}
+    {{/each}}
+</ul>

@@ -2,27 +2,28 @@ import Ember from 'ember';
 const { computed } = Ember;
 
 export default Ember.Route.extend({
-    model: function() {
+    model: function(params) {
         let store = this.store;
-        let order = store.createRecord('order');
-
-        store.find('user', 1).then(function (user) {
-            var defaultAddress = user.get('addressBook').get('firstObject');
-            // should check whether an address exists, if not create a new record.
-            // For prototype assume user has a saved address which can inform about
-            // shipping country for delivery methods.
-            order.set('shippingAddress', defaultAddress);
-            order.set('billingAddress', defaultAddress);
-            order.set('user', user);
-        });
-
-        store.find('item', 1).then(function (item) {
-            order.get('items').pushObject(item);
-        });
-        
-        store.find('item', 2).then(function (item) {
-            order.get('items').pushObject(item);
-        });
+        let order = store.find('order', params.order_id)
+        // let order = store.createRecord('order');
+        // 
+        // store.find('user', 1).then(function (user) {
+        //     var defaultAddress = user.get('addressBook').get('firstObject');
+        //     // should check whether an address exists, if not create a new record.
+        //     // For prototype assume user has a saved address which can inform about
+        //     // shipping country for delivery methods.
+        //     order.set('shippingAddress', defaultAddress);
+        //     order.set('billingAddress', defaultAddress);
+        //     order.set('user', user);
+        // });
+        // 
+        // store.find('item', 1).then(function (item) {
+        //     order.get('items').pushObject(item);
+        // });
+        // 
+        // store.find('item', 2).then(function (item) {
+        //     order.get('items').pushObject(item);
+        // });
 
         return order;
     },

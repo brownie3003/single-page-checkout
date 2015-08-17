@@ -7,13 +7,13 @@
             You are currently checking out as a guest. Please select a sign in method.
         </p>
         {{#if showSignIn}}
-            {{sign-in-form}}
+            {{sign-in-form destinationUrl='order.shipping-address'}}
         {{/if}}
         {{#if showSignUp}}
-            {{sign-up-form}}
+            {{sign-up-form destinationUrl='order.shipping-address'}}
         {{/if}}
         {{#if showGuestCheckout}}
-            {{guest-checkout-form}}
+            {{guest-checkout-form destinationUrl='order.shipping-address'}}
         {{/if}}
         {{#if (not showSignIn)}}
             <button type="button" name="button" class="btn btn-default btn-block" {{action "showSignIn"}}>Sign In with Email</button>

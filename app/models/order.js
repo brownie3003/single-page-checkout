@@ -2,15 +2,16 @@ import DS from 'ember-data';
 import EmberValidations from 'ember-validations';
 
 export default DS.Model.extend(EmberValidations, {
-    shippingAddress: DS.belongsTo('address'),
-    billingAddress: DS.belongsTo('address'),
+    shippingAddress: DS.belongsTo('address', { async: true }),
+    billingAddress: DS.belongsTo('address', { async: true }),
     items: DS.hasMany('item', { async: true }),
     user: DS.belongsTo('user', { async: true }),
     isPaid: DS.attr('boolean', { defaultValue: false }),
-    deliveryMethod: DS.belongsTo('delivery-method', { defaultValue: null }),
+    deliveryMethod: DS.belongsTo('delivery-method'),
     // Don't know if this is a good idea, but struggle to pass in shipping Address's
     // country to components and if we don't have a saved shipping Address.
     shippingCountry: DS.attr('string', { defaultValue: "UK" }),
+    mooScenarioDescription: DS.attr('string'),
     
     validations: {
         shippingAddress: {
@@ -30,7 +31,9 @@ export default DS.Model.extend(EmberValidations, {
             shippingAddress: 2,
             billingAddress: 1,
             items: [1, 2],
-            user: 1
+            user: 1,
+            shippingCountry: "UK",
+            mooScenarioDescription: "Returning Users"
         }
     ]
 });
