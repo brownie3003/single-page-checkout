@@ -1,5 +1,6 @@
 {{#each addresses as |address|}}
-    <label class="radio {{if (eq address targetAddress) 'active'}}">
+    <!-- TODO addresses is an ember object... targetAddress is a DS.PromiseObject so they don't equal!!!-->
+    <label class="radio {{if (eq address.firstLine targetAddress.firstLine) 'active'}}">
         <input type="radio" name={{name}} value={{address}} {{action 'selectSavedAddress' address on="change"}} checked={{eq address targetAddress}}>
         {{moo-address address=address}}
     </label>

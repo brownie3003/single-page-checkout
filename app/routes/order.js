@@ -4,7 +4,7 @@ const { computed } = Ember;
 export default Ember.Route.extend({
     model: function(params) {
         let store = this.store;
-        let order = store.find('order', params.order_id)
+        let order = store.find('order', params.order_id);
         // let order = store.createRecord('order');
         // 
         // store.find('user', 1).then(function (user) {

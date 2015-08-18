@@ -1,20 +1,22 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-    model() {
-        return this.modelFor('order');
-    },
-    afterModel(model) {
-        // Let's assume we can't get here without a user.
-        let user = model.get('user');
-        if (Object.keys(user.get('addressBook').getProperties()).length > 0) {
-            let defaultAddress = user.get('addressBook').get('firstObject');
-            model.set('shippingAddress', defaultAddress);
-            model.set('billingAddress', defaultAddress);
-        }
-        return model;
-    },
     setupController(controller, model) {
-        controller.set("order", model);
+        let self = this;
+        let order = this.modelFor('order');
+        controller.set("order", order);
+        
+        // Get the first saved object in addres book and set it as the
+        // shipping address for the order. Maybe this should live in a
+        // model hook but it was a bastard to figure out becasue I forgot
+        // it's all promises. Should try moving it later #TODO
+        if (Ember.isEmpty(order.get('shippingAddress').get('content'))) {
+            order.get('user').then(function(user) {
+                user.get('addressBook').then(function(addressBook) {
+                    let defaultAddress = addressBook.get('firstObject');
+                    self.send('setShippingAddress', defaultAddress);
+                })
+            });
+        }
     },
 })
