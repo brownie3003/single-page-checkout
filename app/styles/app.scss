@@ -3,6 +3,7 @@
 @import 'components/moo-price';
 @import 'components/item-details';
 @import 'components/checkout-nav';
+@import 'components/mini-promo-code';
 @import 'bootstrap-customisation/btn-moo';
 
 
@@ -10,4 +11,11 @@ header {
     background-color: #00945E;
     text-align: center;
     padding: 10px;
+}
+
+.vertical-align-middle {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+    text-align: center;
 }

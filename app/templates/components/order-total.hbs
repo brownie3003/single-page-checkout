@@ -1,39 +1,42 @@
-<div class="panel panel-default">
-    <div class="panel-body">
-        <h4>Order Total</h4>
-        <div class="row">
-            <div class="col-xs-6">
-                <strong>Item sub-total</strong>
-            </div>
-            <div class="col-xs-6 text-right">
-                {{moo-price originalPrice=originalItemsPrice finalPrice=finalItemsPrice}}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-6">
-                <strong>Shipping Price</strong>
-            </div>
-            <div class="col-xs-6 text-right">
-                {{moo-price finalPrice=order.deliveryMethod.price}}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-6">
-                <strong>VAT</strong>
-            </div>
-            <div class="col-xs-6 text-right">
-                {{moo-price finalPrice=tax}}
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-xs-6">
-                <strong>Total Price</strong>
-            </div>
-            <div class="col-xs-6 text-right">
-                {{moo-price finalPrice=totalPrice}}
-            </div>
-        </div>
+<h4>Order Total</h4>
+<div class="row">
+    <div class="col-xs-6">
+        <strong>Item sub-total</strong>
+    </div>
+    <div class="col-xs-6 text-right">
+        {{moo-price originalPrice=order.originalItemsPrice finalPrice=order.finalItemsPrice}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-6">
+        <strong>Shipping Price</strong>
+    </div>
+    <div class="col-xs-6 text-right">
+        {{moo-price finalPrice=order.deliveryMethod.price}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-6">
+        <strong>VAT</strong>
+    </div>
+    <div class="col-xs-6 text-right">
+        {{moo-price finalPrice=order.tax}}
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-xs-12">
+        {{!-- Yield for other line items, currently Promo codes --}}
+        {{yield}}
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-xs-6">
+        <strong>Total Price</strong>
+    </div>
+    <div class="col-xs-6 text-right">
+        {{moo-price finalPrice=order.totalPrice}}
     </div>
 </div>
 
@@ -57,5 +60,3 @@
 {{else}}
     Please enter a valid billing address or select a saved one.
 {{/if}} --}}
-
-{{yield}}

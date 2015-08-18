@@ -4,7 +4,22 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-4 col-md-push-8">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        {{#order-summary order=order}}
+                            {{#order-total order=order}}
+                                {{mini-promo-code applyDiscount="applyDiscount" discount=order.discount}}
+                            {{/order-total}}
+                        {{/order-summary}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 col-md-pull-4">
         <div class="row">
             <div class="col-md-12">
                 {{!-- TODO figure out why order.deliveryMethod needs to be invoked on 
@@ -28,18 +43,6 @@
                         {{/link-to}}
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="row">
-            <div class="col-md-12">
-                {{promo-code}}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                {{order-total order=order}}
             </div>
         </div>
     </div>

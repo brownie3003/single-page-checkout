@@ -8,7 +8,7 @@ export default Ember.Route.extend({
         // let order = store.createRecord('order');
         // 
         // store.find('user', 1).then(function (user) {
-        //     var defaultAddress = user.get('addressBook').get('firstObject');
+        //     let defaultAddress = user.get('addressBook').get('firstObject');
         //     // should check whether an address exists, if not create a new record.
         //     // For prototype assume user has a saved address which can inform about
         //     // shipping country for delivery methods.
@@ -48,7 +48,7 @@ export default Ember.Route.extend({
     // }),
     actions: {
         setDeliveryMethod: function(deliveryMethod) {
-            var order = this.modelFor('order');
+            let order = this.modelFor('order');
             order.set('deliveryMethod', deliveryMethod);
         },
         // Surely some refactoring can be done here with shipping/billing
@@ -56,36 +56,40 @@ export default Ember.Route.extend({
         // TODO write route and component tests
         // TODO refactor this code.
         setShippingAddress: function(shippingAddress) {
-            var order = this.modelFor('order');
+            let order = this.modelFor('order');
             order.set('shippingAddress', shippingAddress);
         },
         setBillingAddress: function(billingAddress) {
-            var order = this.modelFor('order');
+            let order = this.modelFor('order');
             order.set('billingAddress', billingAddress);
         },
         // All we do here is clear the shipping address. It represents the user telling us they are 
         // going to submit a new address, but not an actual address.
         // We need to wait for a valid  address before setting it on the order.
         enterNewShippingAddress: function() {
-            var order = this.modelFor('order');
+            let order = this.modelFor('order');
             this.send('clearAddress', order, 'shippingAddress');
         },
         enterNewBillingAddress: function() {
-            var order = this.modelFor('order');
+            let order = this.modelFor('order');
             this.send('clearAddress', order, 'billingAddress');
         },
         clearAddress: function(order, addressType) {
             order.set(addressType, null);
         },
         saveAddress: function(address) {
-            var order = this.modelFor('order');
-            var user = order.get('user');
+            let order = this.modelFor('order');
+            let user = order.get('user');
             address.set('user', user);
             address.save();
         },
         setShippingCountry(shippingCountry) {
-            var order = this.modelFor('order');
+            let order = this.modelFor('order');
             order.set('shippingCountry', shippingCountry);
+        },
+        applyDiscount(code) {
+            let order = this.modelFor('order');
+            order.set('discount', -10.00);
         }
     }
 });

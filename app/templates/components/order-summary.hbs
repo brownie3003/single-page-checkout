@@ -1,0 +1,60 @@
+{{#if collapsed}}
+    <div class="row">
+        <div class="col-xs-6 vertical-align-middle">
+            <span>Order Summary</span>
+            <br> 
+            <small>
+                You have {{order.items.length}} {{itemsInflection}} in this order
+            </small>
+        </div><!--
+        --><div class="col-xs-6 vertical-align-middle">
+            <div class="col-xs-6 vertical-align-middle">
+                <strong>{{order.totalPrice}}</strong>
+            </div><!--
+            --><div class="col-xs-6 vertical-align-middle">
+                <button type="button" name="button" class="btn btn-moo pull-right" {{action "toggleCollapsed"}}>
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+{{else}}
+    <div class="row">
+        <div class="col-xs-6 vertical-align-middle" style="text-align: left;">
+            <h4>Item Summary</h4>
+        </div><!--
+        --><div class="col-xs-6 vertical-align-middle">
+            <div class="col-xs-6 vertical-align-middle">
+            </div><!--
+            --><div class="col-xs-6 vertical-align-middle">
+                <button type="button" name="button" class="btn btn-moo pull-right" {{action "toggleCollapsed"}}>
+                    <span class="glyphicon glyphicon-chevron-up"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            {{#each order.items as |item|}}
+                <div>
+                    <p>
+                        <strong>{{item.title}}</strong>
+                        <br>
+                        <span>{{item.quantity}} x {{item.description}}</span>
+                    </p>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <span>Shipping to {{order.shippingCountry}}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            {{yield}}
+        </div>
+    </div>
+        
+{{/if}}
