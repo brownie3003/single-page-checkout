@@ -44,7 +44,7 @@ Make use of the many generators for code, try `ember help generate` for more det
 Currently deployed to divshot using ember-divshot addon. Checkout https://divshot.com/
 
 To push to an env simply use:
-$ ember divshot push [env]
+`ember divshot push [env]`
 
 Current envs:
 - [development](http://development.moo-checkout.divshot.io/)
