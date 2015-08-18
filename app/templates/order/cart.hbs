@@ -12,20 +12,6 @@
                 {{/each}}
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                {{!-- TODO figure out why order.deliveryMethod needs to be invoked on 
-                the template in order for {{delivery-methods}} component to re-render
-                when it changes --}}
-                <div class="hidden">{{order.deliveryMethod}}</div>
-                {{delivery-methods 
-                    shippingCountry=order.shippingCountry 
-                    selectedDeliveryMethod=order.deliveryMethod 
-                    setDeliveryMethod="setDeliveryMethod"
-                    setShippingCountry="setShippingCountry"
-                }}
-            </div>
-        </div>
     </div>
     <div class="col-md-4">
         <div class="row">
