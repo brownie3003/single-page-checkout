@@ -1,73 +1,35 @@
-ol {
-    margin-top: 10px;
-    padding-left: 0px;
-    border-color: #E6E6E6;
-    border-width: 1px;
-    border-style: solid;
-    a {
-        display: inline-block;
+.checkout-nav {
+    ul {
+        width: 100%;
         li {
-        	list-style-position: inside;
-            list-style: none;
             text-align: center;
-        }
-        &.cart-icon {
-            width: 10%;
-        }
-        &.twenty-two-percent {
-            width: 22.5%;
-        }
-        &.thirty-percent {
-            // Blarg inline block
-            width: 29.7%;
-        }
-        &.active {
-            li {
-                background-color: #00945E;
+            &.cart-icon {
+                width: 10%;
+            }
+            &.twenty-two-percent {
+                width: 22.5%;
+            }
+            &.thirty-percent {
+                width: 28.8%;
             }
         }
     }
+}
 
-			
-		// &:before, &:after
-		// 	left: 100%
-		// 	border: solid transparent
-		// 	content: " "
-		// 	height: 0
-		// 	width: 0
-		// 	position: absolute
-		// 	pointer-events: none
-		// &:after
-		// 	border-left-color: #e9eaee
-		// 	border-width: 15px
-		// 	top: 70%
-		// 	margin-top: -15px
-		// &:before
-		// 	border-left-color: #8d8d8d
-		// 	border-width: 16px
-		// 	top: 50%
-		// 	margin-top: -116px
-		// &:last-of-type
-		// 	border-top-right-radius: 14px
-		// 	border-bottom-right-radius: 14px
-		// 	&:before
-		// 		display: none
-		// &.active
-		// 	background-color: #6e9d41
-		// 	box-shadow: #84b04e 0 10px 0 inset
-		// 	text-shadow: 0 1px 0 rgba(0,0,0,.3)
-		// 	border-color: #618f37
-		// 	color: #fff
-		// 	&:after
-		// 		border-left-color: #6e9d41
-		// 	&:before
-		// 		border-left-color: #618f37
-		// &:nth-child(n+2)
-		// 	padding-left: 25px
-		// &:nth-child(1)
-		// 	z-index: 3
-		// &:nth-child(2)
-		// 	z-index: 2
-		// &:nth-child(3)
-		// 	z-index: 1
+.navbar-nav {
+	margin:0;
+}
+.navbar-nav > li {
+	float:none;
+    display:inline-block;
+}
+.navbar-nav > li > a {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.navbar-nav > li.open > ul.dropdown-menu {
+  position: absolute;
+  border: 1px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
 }

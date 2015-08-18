@@ -2,6 +2,8 @@ import Ember from 'ember';
 const { computed } = Ember;
 
 export default Ember.Component.extend({
+    tagName: "nav",
+    classNames: ['navbar', 'navbar-default', 'checkout-nav'],
     isSignedIn: computed('user', function() {
         return this.get('user');
     }),

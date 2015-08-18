@@ -1,34 +1,32 @@
-<div class="row">
-    <div class="col-xs-12">
-        <ol>
-            {{#link-to 'order.cart' class="cart-icon"}}
-                <li>
+<div class="container-fluid no-padding">
+    <ul class="nav navbar-nav">
+        <li class="cart-icon vertical-align-middle">
+            {{#link-to 'order.cart'}}
                     <span class="glyphicon glyphicon-shopping-cart"></span>
-                </li>
             {{/link-to}}
-            {{#if (not isSignedIn)}}
-                {{#link-to 'order.sign-in' class=navItemWidth}}
-                    <li>
-                        <span>Sign in</span>
-                    </li>
+        </li>
+        {{#if (not isSignedIn)}}
+            <li class="vertical-align-middle {{navItemWidth}}">
+                {{#link-to 'order.sign-in'}}
+                    Sign in
                 {{/link-to}}
-            {{/if}}
-            {{#link-to 'order.shipping-options' class=navItemWidth}}
-                <li>
-                    <span>Shipping Option</span>
-                </li>
+            </li>
+        {{/if}}
+        <li class="vertical-align-middle {{navItemWidth}}">
+            {{#link-to 'order.shipping-options'}}
+                Shipping Option
             {{/link-to}}
-            {{#link-to 'order.shipping-address' class=navItemWidth}}
-                <li>
-                    <span>Shipping Address</span>
-                </li>
+        </li>
+        <li class="vertical-align-middle {{navItemWidth}}">
+            {{#link-to 'order.shipping-address'}}
+                Shipping Address
             {{/link-to}}
-            {{#link-to 'orders' class=navItemWidth}}
-                <li>
-                    <span>Payment</span>
-                </li>
+        </li>
+        <li class="vertical-align-middle {{navItemWidth}}">
+            {{#link-to 'orders'}}
+                Payment
             {{/link-to}}
-        </ol>
-    </div>
+        </li>
+    </ul>
 </div>
 {{yield}}
