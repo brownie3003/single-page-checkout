@@ -1,0 +1,15 @@
+.payment-method {
+    padding-bottom: 20px;
+    padding-top: 20px;
+    cursor: pointer;
+    img {
+        max-width: 100%;
+        max-height: 100px;
+    }
+    input[type="radio"] {
+        display: none;
+    }
+    &.active {
+        background-color: #00965E;
+    }
+}

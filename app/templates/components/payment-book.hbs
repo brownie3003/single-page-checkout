@@ -1,0 +1,13 @@
+{{#each paymentMethods as |paymentMethod|}}
+    {{payment-method paymentMethod=paymentMethod selectedPaymentMethod=selectedPaymentMethod setPaymentMethod=setPaymentMethod}}
+{{/each}}
+
+{{#if (not showCardEntryForm)}}
+    <button type="button" class="btn btn-block btn-default" {{action 'toggleShowCardEntryForm'}}>Use a different card</button>
+{{/if}}
+
+{{#if showCardEntryForm}}
+    {{card-form newCard=newCard setPaymentMethod=setPaymentMethod}}
+{{/if}}
+
+{{yield}}

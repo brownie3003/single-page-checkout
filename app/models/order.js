@@ -8,6 +8,7 @@ export default DS.Model.extend(EmberValidations, {
     items: DS.hasMany('item', { async: true }),
     user: DS.belongsTo('user', { async: true }),
     isPaid: DS.attr('boolean', { defaultValue: false }),
+    paymentMethod: DS.belongsTo('payment-method', { async: true, defaultValue: null }),
     deliveryMethod: DS.belongsTo('delivery-method'),
     // Don't know if this is a good idea, but struggle to pass in shipping Address's
     // country to components and if we don't have a saved shipping Address.
@@ -15,8 +16,7 @@ export default DS.Model.extend(EmberValidations, {
     discount: DS.attr('number', { defaultValue: null }),
     mooScenarioDescription: DS.attr('string'),
     
-    // The following are computed properties on the model
-    
+    // Computed properties
     finalItemsPrice: computed('items.[]', function() {
         let finalItemsPrice = 0;
         let items = this.get('items');
@@ -27,7 +27,7 @@ export default DS.Model.extend(EmberValidations, {
         });
         return finalItemsPrice.toFixed(2);
     }),
-    originalItemsPrice: computed('finalItemsPrice', function() {
+    originalItemsPrice: computed('finalItemsPrice', 'items.[]', function() {
         let items = this.get('items');
         let originalItemsPrice = 0;
         items.forEach(function(item) {
@@ -84,7 +84,8 @@ export default DS.Model.extend(EmberValidations, {
             items: [1, 2],
             user: 1,
             shippingCountry: "UK",
-            mooScenarioDescription: "Returning Users"
+            paymentMethod: 1,
+            mooScenarioDescription: "Returning User"
         }
     ]
 });

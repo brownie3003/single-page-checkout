@@ -1,0 +1,32 @@
+<h4>Select a payment method</h4>
+{{!-- Make an assumption that Paypal and Google Wallet are external links so we don't need 'radio button'
+functionality --}}
+<div class="row">
+    <div class="col-xs-4">
+        <div class="panel panel-default active">
+            <div class="panel-body">
+                CC
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                PP
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                GW
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        {{payment-book paymentMethods=paymentMethods selectedPaymentMethod=selectedPaymentMethod setPaymentMethod=setPaymentMethod}}
+    </div>
+</div>
+{{yield}}

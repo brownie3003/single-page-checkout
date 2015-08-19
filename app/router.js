@@ -12,6 +12,7 @@ Router.map(function() {
         this.route('sign-in');
         this.route('shipping-address');
         this.route('shipping-options');
+        this.route('payment');
     });
 });
 

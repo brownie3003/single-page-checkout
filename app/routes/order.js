@@ -29,6 +29,7 @@ export default Ember.Route.extend({
     },
     afterModel(model) {
         // Make sure items promise is resolved for rendering of components.
+        model.get('paymentMethod');
         return model.get('items');
     },
     setupController(controller, model) {
@@ -90,6 +91,10 @@ export default Ember.Route.extend({
         applyDiscount(code) {
             let order = this.modelFor('order');
             order.set('discount', -10.00);
+        },
+        setPaymentMethod(paymentMethod) {
+            let order=this.modelFor('order');
+            order.set('paymentMethod', paymentMethod);
         }
     }
 });
