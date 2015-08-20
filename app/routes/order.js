@@ -95,6 +95,17 @@ export default Ember.Route.extend({
         setPaymentMethod(paymentMethod) {
             let order=this.modelFor('order');
             order.set('paymentMethod', paymentMethod);
+        },
+        clearPaymentMethod() {
+            let order = this.modelFor('order');
+            order.set('paymentMethod', null);
+        },
+        savePaymentMethod(paymentMethod) {
+            let order = this.modelFor('order');
+            let user = order.get('user');
+            paymentMethod.set('user', user);
+            paymentMethod.set('type', "AMEX");
+            paymentMethod.save();
         }
     }
 });

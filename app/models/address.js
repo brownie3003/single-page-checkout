@@ -12,7 +12,7 @@ export default DS.Model.extend(EmberValidations, {
     state: DS.attr('string'),
     postcode: DS.attr('string'),
     country: DS.attr('string'),
-    user: DS.belongsTo('user', { async: true}),
+    user: DS.belongsTo('user', { async: true }),
 
     validations: {
         firstName: {

@@ -1,3 +1,5 @@
+{{checkout-nav user=order.user shippingAddress=order.shippingAddress}}
+
 <div class="row">
     <div class="col-md-12">
         <h2>Payment</h2>
@@ -24,7 +26,13 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        {{payment-options paymentMethods=order.user.paymentBook selectedPaymentMethod=order.paymentMethod setPaymentMethod="setPaymentMethod"}}
+                        {{payment-options 
+                            paymentMethods=order.user.paymentBook 
+                            selectedPaymentMethod=order.paymentMethod 
+                            setPaymentMethod="setPaymentMethod"
+                            clearPaymentMethod="clearPaymentMethod"
+                            savePaymentMethod="savePaymentMethod"
+                        }}
                     </div>
                 </div>
             </div>

@@ -1,0 +1,15 @@
+.payment-options {
+    label {
+        cursor: pointer;
+    }
+    img {
+        max-height: 200px;
+        max-width: 100%;
+    }
+    input[type="radio"] {
+        display: none;
+    }
+    .active {
+        background-color: #00965E;
+    }
+}

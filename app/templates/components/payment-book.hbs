@@ -3,11 +3,14 @@
 {{/each}}
 
 {{#if (not showCardEntryForm)}}
-    <button type="button" class="btn btn-block btn-default" {{action 'toggleShowCardEntryForm'}}>Use a different card</button>
+    <button type="button" class="btn btn-block btn-default" {{action 'enterNewCard'}}>Use a different card</button>
 {{/if}}
 
 {{#if showCardEntryForm}}
-    {{card-form newCard=newCard setPaymentMethod=setPaymentMethod}}
+    {{card-form 
+        card=newCard 
+        setPaymentMethod=setPaymentMethod 
+        savePaymentMethod=savePaymentMethod}}
 {{/if}}
 
 {{yield}}

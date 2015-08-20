@@ -1,32 +1,47 @@
 <h4>Select a payment method</h4>
-{{!-- Make an assumption that Paypal and Google Wallet are external links so we don't need 'radio button'
-functionality --}}
 <div class="row">
-    <div class="col-xs-4">
-        <div class="panel panel-default active">
-            <div class="panel-body">
-                CC
-            </div>
+    {{#each paymentOptions as |paymentOption|}}
+        <div class="col-xs-3">
+            <label class="radio">
+                <div class="panel panel-default">
+                    <div class="panel-body {{if (eq paymentOption selectedPaymentOption) 'active'}}">
+                        <input 
+                            type="radio" 
+                            name="paymentOptions" 
+                            value={{paymentOption}}
+                            {{action "setPaymentOption" paymentOption on="change"}} 
+                            checked={{eq paymentOption selectedPaymentOption}}
+                        >
+                        <img src="assets/images/payment_options/{{paymentOption}}.png">
+                    </div>
+                </div>
+            </label>
         </div>
-    </div>
-    <div class="col-xs-4">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                PP
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-4">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                GW
-            </div>
-        </div>
-    </div>
+    {{/each}}
 </div>
-<div class="row">
-    <div class="col-xs-12">
-        {{payment-book paymentMethods=paymentMethods selectedPaymentMethod=selectedPaymentMethod setPaymentMethod=setPaymentMethod}}
+{{#if (eq selectedPaymentOption "creditCard")}}
+    <div class="row">
+        <div class="col-xs-12">
+            {{payment-book 
+                paymentMethods=paymentMethods 
+                selectedPaymentMethod=selectedPaymentMethod 
+                setPaymentMethod=setPaymentMethod
+                clearPaymentMethod=clearPaymentMethod
+                savePaymentMethod=savePaymentMethod
+            }}
+        </div>
     </div>
-</div>
+{{/if}}
+{{#if (eq selectedPaymentOption "payPal")}}
+    <div class="col-xs-12 vertical-align-middle">
+        <strong>When paying with paypal your browser will take you to the paypal website.</strong>
+        <img src="assets/images/payment_options/payPal_button.png">
+    </div>
+{{/if}}
+{{#if (eq selectedPaymentOption "googleWallet")}}
+    <div class="col-xs-12 vertical-align-middle">
+        <strong>When paying with google wallet your browser will take you to the google wallet website.</strong>
+        <img src="assets/images/payment_options/googleWallet_button.png">
+    </div>
+{{/if}}
 {{yield}}

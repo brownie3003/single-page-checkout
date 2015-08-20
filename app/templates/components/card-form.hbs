@@ -12,10 +12,15 @@
             <label>Expiry Date (MM / YY)</label>
             <div class="row">
                 <div class="col-xs-3">
-                    {{validated-input value=expiryMonth type="text" placeHolder="MM" errors=card.errors.expiryDate}}
+                    {{validated-input value=expiryMonth type="text" placeHolder="MM" errors=errors.expiryMonth action="checkCardIsValid"}}
                 </div>
                 <div class="col-xs-3">
-                    {{validated-input value=expiryYear type="text" placeHolder="YY" errors=card.errors.expiryDate action="checkCardIsValid"}}
+                    {{validated-input value=expiryYear type="text" placeHolder="YY" errors=errors.expiryYear action="checkCardIsValid"}}
+                </div>
+                {{!-- TODO still need to figure out why I need to invoke this computed property on the HTMLBars template in order for it
+                to recompute --}}
+                <div class="hidden">
+                    {{computedExpiryDate}}
                 </div>
             </div>
         </div>
@@ -23,11 +28,11 @@
             <label>CCV</label>
             <div class="row">
                 <div class="col-xs-4">
-                    {{validated-input value=ccv type="text" placeHolder="CCV"}}
+                    {{validated-input value=ccv type="text" placeHolder="CCV" errors=errors.ccv action="checkCardIsValid"}}
                 </div>
-                
             </div>
         </div>
+        <button type="submit" class="btn btn-success btn-block" disabled={{isInvalid}} {{action "savePaymentMethod" card}}>Save Card</button>
     </form>
 </div>
 

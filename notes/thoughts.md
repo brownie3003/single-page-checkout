@@ -13,3 +13,13 @@ return a discount, which can be applied as 1 line item to the bill. It's an over
 This simplification would mean you would have to resubmit the cart & promocode everytime the cart changes (add/remove item, change shipping option). Is there any way to avoid that? (i.e. do we do it currently?)
 
 Either you make that API call extremely fast, or you deal with promos client side (which opens up syncing issues). Promo does need to be re-written in any case.
+
+
+###Payment methods
+
+I've made a mistake around the language here.
+
+- Payment Method is a model that actually represents a credit card.
+- Payment Options is a component that shows you card/paypal/googlewallet/giftcard
+
+Argh can't think about it now. Need to draw out the relationship between credit cards and payment methods. and then paypal and payment methods.
