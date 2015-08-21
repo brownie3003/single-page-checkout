@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+    
     // These should be routes
     showSignIn: false,
     showSignUp: false,
@@ -21,5 +22,8 @@ export default Ember.Component.extend({
             this.set('showSignUp', false);
             this.set('showGuestCheckout', true);
         },
+        createUser(user) {
+            
+        }
     }
 });

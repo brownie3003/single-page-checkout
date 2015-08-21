@@ -8,6 +8,57 @@
 
 <div class="row">
     <div class="col-md-10 col-md-offset-1 col-xs-12">
-        {{account-options}}
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h3>
+                            Be our guest
+                        </h3>
+                        <p>
+                            You are currently checking out as a guest. Please sign in or create an account.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        {{outlet}}
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-xs-12" style="text-align:center;">
+                        <strong>OR</strong>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 col-xs-12">
+                        <div class="form-group">
+                            {{#link-to 'order.account.sign-in' class="account-button"}}
+                                <button type="button" name="button" class="btn btn-default btn-block">Sign In with Email</button>
+                            {{/link-to}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 col-xs-12">
+                        <div class="form-group">
+                            {{#link-to 'order.account.sign-up' class="account-button"}}
+                                <button type="button" name="button" class="btn btn-default btn-block">Sign Up with Email</button>
+                            {{/link-to}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 col-xs-12">
+                        <div class="form-group">
+                            {{#link-to 'order.shipping-options' class="account-button"}}
+                                <button type="button" name="button" class="btn btn-default btn-block">Continue with Guest Checkout</button>
+                            {{/link-to}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
