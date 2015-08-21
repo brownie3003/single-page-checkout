@@ -27,7 +27,7 @@
                 {{!-- TODO figure out why order.deliveryMethod needs to be invoked on 
                 the template in order for {{delivery-methods}} component to re-render
                 when it changes --}}
-                <div class="hidden">{{order.deliveryMethod}}</div>
+                {{!-- <div class="hidden">{{order.deliveryMethod}}</div> --}}
                 {{delivery-methods 
                     shippingCountry=order.shippingCountry 
                     selectedDeliveryMethod=order.deliveryMethod 

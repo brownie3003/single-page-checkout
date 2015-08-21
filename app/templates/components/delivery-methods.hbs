@@ -13,8 +13,8 @@
             </div>
         </div>
         <div class="row">
-            {{#if showAllDeliveryOptions}}
-                {{#each availableDeliveryMethods as |deliveryMethod|}}
+            {{#if showAllDeliveryMethods}}
+                {{#each deliveryMethods as |deliveryMethod|}}
                     {{delivery-method 
                         deliveryMethod=deliveryMethod 
                         selectedDeliveryMethod=selectedDeliveryMethod 
@@ -33,10 +33,8 @@
         </div>
         <div class="row">
             <div class="col-xs-12">
-                {{#if showAllDeliveryOptions}}
-                    <button class="btn btn-default btn-block" {{action "toggleShowAllDeliveryOptions"}}>Show Most Popular Options</button>
-                {{else}}
-                    <button class="btn btn-default btn-block" {{action "toggleShowAllDeliveryOptions"}}>See More Options</button>
+                {{#if (not showAllDeliveryMethods)}}
+                    <button class="btn btn-default btn-block" {{action "toggleShowAllDeliveryMethods"}}>See More Options</button>
                 {{/if}}
             </div>
         </div>

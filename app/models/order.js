@@ -9,7 +9,7 @@ export default DS.Model.extend(EmberValidations, {
     user: DS.belongsTo('user', { async: true }),
     isPaid: DS.attr('boolean', { defaultValue: false }),
     paymentMethod: DS.belongsTo('payment-method', { async: true, defaultValue: null }),
-    deliveryMethod: DS.belongsTo('delivery-method'),
+    deliveryMethod: DS.belongsTo('delivery-method', { async: true }),
     // Don't know if this is a good idea, but struggle to pass in shipping Address's
     // country to components and if we don't have a saved shipping Address.
     shippingCountry: DS.attr('string', { defaultValue: "UK" }),
