@@ -1,5 +1,5 @@
 {{#each paymentMethods as |paymentMethod|}}
-    {{payment-method paymentMethod=paymentMethod selectedPaymentMethod=selectedPaymentMethod setPaymentMethod=setPaymentMethod}}
+    {{payment/payment-method paymentMethod=paymentMethod selectedPaymentMethod=selectedPaymentMethod setPaymentMethod=setPaymentMethod}}
 {{/each}}
 
 {{#if (not showCardEntryForm)}}
@@ -7,7 +7,7 @@
 {{/if}}
 
 {{#if showCardEntryForm}}
-    {{card-form 
+    {{payment/card-form 
         card=newCard 
         setPaymentMethod=setPaymentMethod 
         savePaymentMethod=savePaymentMethod}}

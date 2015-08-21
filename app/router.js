@@ -9,7 +9,7 @@ Router.map(function() {
     this.route('orders');
     this.route('order', { path: "/order/:order_id" }, function () {
         this.route('cart');
-        this.route('sign-in');
+        this.route('account');
         this.route('shipping-address');
         this.route('shipping-options');
         this.route('payment');

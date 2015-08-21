@@ -85,7 +85,13 @@ export default DS.Model.extend(EmberValidations, {
             user: 1,
             shippingCountry: "UK",
             paymentMethod: 1,
-            mooScenarioDescription: "Returning User"
+            mooScenarioDescription: "Returning, Signed in User"
+        },
+        {
+            id: 2,
+            items: [1],
+            shippingCountry: "UK",
+            mooScenarioDescription: "New User"
         }
     ]
 });

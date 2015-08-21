@@ -15,7 +15,7 @@
         <div class="row">
             {{#if showAllDeliveryMethods}}
                 {{#each deliveryMethods as |deliveryMethod|}}
-                    {{delivery-method 
+                    {{delivery/delivery-method 
                         deliveryMethod=deliveryMethod 
                         selectedDeliveryMethod=selectedDeliveryMethod 
                         setDeliveryMethod="setDeliveryMethod"
@@ -23,7 +23,7 @@
                 {{/each}}
             {{else}}
                 {{#each popularDeliveryMethods as |deliveryMethod|}}
-                    {{delivery-method 
+                    {{delivery/delivery-method 
                         deliveryMethod=deliveryMethod 
                         selectedDeliveryMethod=selectedDeliveryMethod 
                         setDeliveryMethod="setDeliveryMethod"
