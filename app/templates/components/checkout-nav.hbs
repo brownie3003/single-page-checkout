@@ -1,32 +1,32 @@
 <div class="container-fluid no-padding">
     <ul class="nav navbar-nav">
-        <li class="cart-icon vertical-align-middle">
-            {{#link-to 'order.cart'}}
-                    <span class="glyphicon glyphicon-shopping-cart"></span>
-            {{/link-to}}
-        </li>
+        {{#link-to 'order.cart' tagName="li" class="cart-icon vertical-align-middle"}}
+            <a href="#">
+                <span class="glyphicon glyphicon-shopping-cart"></span>
+            </a>
+        {{/link-to}}
         {{#if (not isSignedIn)}}
-            <li class="vertical-align-middle {{navItemWidth}}">
-                {{#link-to 'order.account'}}
+            {{#link-to 'order.account.sign-in' tagName="li" class="vertical-align-middle" classNames=navItemWidth}}
+                <a href="#">
                     Sign in
-                {{/link-to}}
-            </li>
+                </a>
+            {{/link-to}}
         {{/if}}
-        <li class="vertical-align-middle {{navItemWidth}}">
-            {{#link-to 'order.shipping-options'}}
+        {{#link-to 'order.shipping-options' tagName="li" class="vertical-align-middle" classNames=navItemWidth}}
+            <a href="#">
                 Shipping Option
-            {{/link-to}}
-        </li>
-        <li class="vertical-align-middle {{navItemWidth}}">
-            {{#link-to 'order.shipping-address'}}
+            </a>
+        {{/link-to}}
+        {{#link-to 'order.shipping-address' tagName="li" class="vertical-align-middle" classNames=navItemWidth}}
+            <a href="#">
                 Shipping Address
-            {{/link-to}}
-        </li>
-        <li class="vertical-align-middle {{navItemWidth}}">
-            {{#link-to 'order.payment'}}
+            </a>
+        {{/link-to}}
+        {{#link-to 'order.payment' tagName="li" class="vertical-align-middle" classNames=navItemWidth}}
+            <a href="#">
                 Payment
-            {{/link-to}}
-        </li>
+            </a>
+        {{/link-to}}
     </ul>
 </div>
 {{yield}}

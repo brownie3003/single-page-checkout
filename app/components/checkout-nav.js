@@ -5,7 +5,12 @@ export default Ember.Component.extend({
     tagName: "nav",
     classNames: ['navbar', 'navbar-default', 'checkout-nav'],
     isSignedIn: computed('user', function() {
-        return this.get('user');
+        if (this.get('user') === undefined || this.get('user').get('content') === null) {
+            return false;
+        }
+        else {
+            return true;
+        }
     }),
     navItemWidth: computed('isSignedIn', function() {
         let isSignedIn = this.get('isSignedIn');
