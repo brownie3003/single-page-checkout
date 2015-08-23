@@ -1,15 +1,17 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  deliveryDate: DS.attr('date'),
-  description: DS.attr('string'),
-  price: DS.attr('number'),
-  trackable: DS.attr('boolean'),
-  shippingCountry: DS.attr('string')
+    type: DS.attr('string'),
+    deliveryDate: DS.attr('date'),
+    description: DS.attr('string'),
+    price: DS.attr('number'),
+    trackable: DS.attr('boolean'),
+    shippingCountry: DS.attr('string')
 }).reopenClass({
     FIXTURES: [
         {
             id: 1,
+            type: "delivery",
             deliveryDate: moment().add(1, 'days').format('Do MMMM'),
             description: "1 Day",
             price: 22.00,
@@ -18,6 +20,7 @@ export default DS.Model.extend({
         },
         {
             id: 2,
+            type: "delivery",
             deliveryDate: moment().add(2, 'days').format('Do MMMM'),
             description: "2 Days",
             price: 16.00,
@@ -26,6 +29,7 @@ export default DS.Model.extend({
         },
         {
             id: 3,
+            type: "delivery",
             deliveryDate: moment().add(4, 'days').format('Do MMMM'),
             description: "4 Days",
             price: 8.00,
@@ -34,6 +38,7 @@ export default DS.Model.extend({
         },
         {
             id: 4,
+            type: "delivery",
             deliveryDate: moment().add(7, 'days').format('Do MMMM'),
             description: "7 Days",
             price: 3.00,
@@ -42,6 +47,7 @@ export default DS.Model.extend({
         },
         {
             id: 5,
+            type: "delivery",
             deliveryDate: moment().add(1, 'days').format('Do MMMM'),
             description: "1 Day",
             price: 13.00,
@@ -50,6 +56,7 @@ export default DS.Model.extend({
         },
         {
             id: 6,
+            type: "delivery",
             deliveryDate: moment().add(3, 'days').format('Do MMMM'),
             description: "3 Days",
             price: 10.00,
@@ -58,6 +65,7 @@ export default DS.Model.extend({
         },
         {
             id: 7,
+            type: "delivery",
             deliveryDate: moment().add(6, 'days').format('Do MMMM'),
             description: "6 Days",
             price: 3.00,
@@ -66,6 +74,7 @@ export default DS.Model.extend({
         },
         {
             id: 8,
+            type: "delivery",
             deliveryDate: moment().add(10, 'days').format('Do MMMM'),
             description: "10 Days",
             price: 0.00,

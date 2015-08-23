@@ -5,25 +5,6 @@ export default Ember.Route.extend({
     model: function(params) {
         let store = this.store;
         let order = store.find('order', params.order_id);
-        // let order = store.createRecord('order');
-        // 
-        // store.find('user', 1).then(function (user) {
-        //     let defaultAddress = user.get('addressBook').get('firstObject');
-        //     // should check whether an address exists, if not create a new record.
-        //     // For prototype assume user has a saved address which can inform about
-        //     // shipping country for delivery methods.
-        //     order.set('shippingAddress', defaultAddress);
-        //     order.set('billingAddress', defaultAddress);
-        //     order.set('user', user);
-        // });
-        // 
-        // store.find('item', 1).then(function (item) {
-        //     order.get('items').pushObject(item);
-        // });
-        // 
-        // store.find('item', 2).then(function (item) {
-        //     order.get('items').pushObject(item);
-        // });
 
         return order;
     },
@@ -36,21 +17,10 @@ export default Ember.Route.extend({
         controller.set("order", model);
         controller.set("currentRoute", this.get("routeName"));
     },
-    // getDefaultDeliveryMethod: computed(function(order, deliveryMethods) {
-    //     let shippingCountry = this.get('order').get('shippingAddress').get('country');
-    //     let cheapestMethod = deliveryMethods.get('first');
-    //     deliveryMethods.forEach(function(deliveryMethod){
-    //         if (deliveryMethod.get('price') < cheapestMethod.get('price')) {
-    //             cheapestMethod = deliveryMethod;
-    //         }
-    //     });
-    //     
-    //     return cheapestMethod;
-    // }),
     actions: {
-        setDeliveryMethod: function(deliveryMethod) {
+        setShippingOption: function(shippingOption) {
             let order = this.modelFor('order');
-            order.set('deliveryMethod', deliveryMethod);
+            order.set('shippingOption', shippingOption);
         },
         // Surely some refactoring can be done here with shipping/billing
         // if only I had some tests to ensure refactoring didn't break the code... 

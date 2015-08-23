@@ -28,7 +28,7 @@
                 the template in order for {{delivery-methods}} component to re-render
                 when it changes --}}
                 {{!-- <div class="hidden">{{order.deliveryMethod}}</div> --}}
-                {{delivery-methods 
+                {{shipping-options/delivery-methods 
                     shippingCountry=order.shippingCountry 
                     selectedDeliveryMethod=order.deliveryMethod 
                     setDeliveryMethod="setDeliveryMethod"

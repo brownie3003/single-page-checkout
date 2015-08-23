@@ -17,19 +17,19 @@ export default Ember.Service.extend({
      * @param  {[string]} country The shipping country
      * @return {[DS.PromiseArray]} A Promise array that can be treated like an array.
      */
-    getDeliveryMethods(country) {
+    getShippingOptions(shippingCountry) {
         let store = this.get('store');
-        let promise = store.find('deliveryMethod').then(deliveryMethods => {
-            return deliveryMethods.filterBy('shippingCountry', country)
+        let promise = store.find('shipping-option').then(shippingOptions => {
+            return shippingOptions.filterBy('shippingCountry', shippingCountry)
         });
         
         return PromiseArray.create({ promise });
     },
     
-    getDefaultDeliveryMethod(shippingCountry) {
-        return this.getDeliveryMethods(shippingCountry)
-            .then(deliveryMethods => {
-                return deliveryMethods.get('lastObject');
+    getDefaultShippingOption(shippingCountry) {
+        return this.getShippingOptions(shippingCountry)
+            .then(shippingOptions => {
+                return shippingOptions.get('lastObject');
             });
     }
 });

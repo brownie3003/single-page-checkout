@@ -1,27 +1,27 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-    deliveryService: Ember.inject.service('deliveryMethods'),
+    shippingService: Ember.inject.service(),
     model() {
         return this.modelFor('order');
     },
     afterModel(model) {
-        return model.get('deliveryMethod').then(deliveryMethod => {
-            if (!deliveryMethod) {
-                return this.setDefaultDeliveryMethod(model);
+        return model.get('shippingOption').then(shippingOption => {
+            if (!shippingOption) {
+                return this.setDefaultshippingOption(model);
             }
         });
     },
     setupController(controller, model) {
         controller.set("order", model);
     },
-    setDefaultDeliveryMethod(model) {
-        let deliverySerice = this.get('deliveryService');
+    setDefaultshippingOption(model) {
+        let shippingService = this.get('shippingService');
         let shippingCountry = model.get('shippingCountry');
     
-        return deliverySerice.getDefaultDeliveryMethod(shippingCountry)
-            .then(defaultDeliveryMethod => {
-                model.set('deliveryMethod', defaultDeliveryMethod);
+        return shippingService.getDefaultShippingOption(shippingCountry)
+            .then(defaultshippingOption => {
+                model.set('shippingOption', defaultshippingOption);
             });
     }
 });

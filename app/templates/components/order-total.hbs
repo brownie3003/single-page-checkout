@@ -1,25 +1,43 @@
 <h4>Order Total</h4>
 <div class="row">
-    <div class="col-xs-6">
+    <div class="col-xs-7">
         <strong>Item sub-total</strong>
     </div>
-    <div class="col-xs-6 text-right">
+    <div class="col-xs-5 text-right">
         {{moo-price originalPrice=order.originalItemsPrice finalPrice=order.finalItemsPrice}}
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-6">
+    <div class="col-xs-8">
         <strong>Shipping Price</strong>
+        {{#if showShippingOptions}}
+            (<a href="#" {{action 'toggleShowShippingOptions'}}>Hide</a>)
+        {{else}}
+            (<a href="#" {{action 'toggleShowShippingOptions'}}>Change</a>)
+        {{/if}}
     </div>
-    <div class="col-xs-6 text-right">
-        {{moo-price finalPrice=order.deliveryMethod.price}}
+    <div class="col-xs-4 text-right">
+        {{moo-price finalPrice=order.shippingOption.price}}
     </div>
 </div>
+
+{{#if showShippingOptions}}
+    <div class="row shipping-options">
+        <div class="col-xs-12">
+            {{shipping-options/shipping-options
+                shippingCountry=order.shippingCountry
+                selectedShippingOption=order.shippingOption
+                setShippingOption=setShippingOption
+                setShippingCountry=setShippingCountry
+            }}
+        </div>
+    </div>
+{{/if}}
 <div class="row">
-    <div class="col-xs-6">
+    <div class="col-xs-7">
         <strong>VAT</strong>
     </div>
-    <div class="col-xs-6 text-right">
+    <div class="col-xs-5 text-right">
         {{moo-price finalPrice=order.tax}}
     </div>
 </div>
@@ -32,10 +50,10 @@
 </div>
 <hr>
 <div class="row">
-    <div class="col-xs-6">
+    <div class="col-xs-8">
         <strong>Total Price</strong>
     </div>
-    <div class="col-xs-6 text-right">
+    <div class="col-xs-4 text-right">
         {{moo-price finalPrice=order.totalPrice}}
     </div>
 </div>

@@ -9,7 +9,7 @@ export default DS.Model.extend(EmberValidations, {
     user: DS.belongsTo('user', { async: true }),
     isPaid: DS.attr('boolean', { defaultValue: false }),
     paymentMethod: DS.belongsTo('payment-method', { async: true, defaultValue: null }),
-    deliveryMethod: DS.belongsTo('delivery-method', { async: true }),
+    shippingOption: DS.belongsTo('shipping-option', { async: true }),
     // Don't know if this is a good idea, but struggle to pass in shipping Address's
     // country to components and if we don't have a saved shipping Address.
     shippingCountry: DS.attr('string', { defaultValue: "UK" }),
@@ -39,16 +39,16 @@ export default DS.Model.extend(EmberValidations, {
         });
         return (originalItemsPrice !== this.get('finalItemsPrice') ? originalItemsPrice.toFixed(2) : null);
     }),
-    shippingPrice: computed('deliveryMethod.price', function() {
+    shippingPrice: computed('shippingOption.price', function() {
         // Delivery Method not set for some reason (promises?) so need to check
         // before setting this variable, annoying.
-        if (this.get('deliveryMethod') === null) {
+        if (this.get('shippingOption') === null) {
             return null;
         }
-        if (this.get('deliveryMethod').get('price') === null) {
+        if (this.get('shippingOption').get('price') === null) {
             return null;
         }
-        return this.get('deliveryMethod').get('price');
+        return this.get('shippingOption').get('price');
     }),
     tax: computed('finalItemsPrice', 'shippingPrice', function() {
         let finalItemsPrice = parseFloat(this.get('finalItemsPrice'));
@@ -73,7 +73,7 @@ export default DS.Model.extend(EmberValidations, {
         billingAddress: {
             presence: true
         },
-        deliveryMethod: {
+        shippingOption: {
             presence: true
         }
     }
