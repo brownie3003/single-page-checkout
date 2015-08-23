@@ -1,21 +1,25 @@
 {{#if discount}}
-    <div class="col-xs-6 no-padding">
-        <strong>Discount</strong>
+    <div class="col-xs-8 text-right">
+        <strong>Discount:</strong>
     </div>
-    <div class="col-xs-6 text-right no-padding">
-        {{moo-price finalPrice=discount}}
+    <div class="col-xs-4 text-right">
+        <strong style="color: red;">-£{{displayDiscount}}</strong>
     </div>
 {{else}}
     {{#if enteringPromo}}
-        <form class="form-inline" {{action "applyDiscount" code on="submit"}}>
-            <div class="form-group">
-                {{input type="text" value=code class="form-control" placeholder="Enter promo code"}}
-            </div>
-            <button type="submit" class="btn btn-default">Apply</button>
-            <a href="#" {{action 'toggleEnteringPromo'}}>Hide</a>
-        </form>
+        <div class="col-xs-12">
+            <form class="form-inline" {{action "applyDiscount" code on="submit"}}>
+                <div class="form-group text-right">
+                    {{input type="text" value=code class="form-control" placeholder="Enter promo code"}}
+                </div>
+                <button type="submit" class="btn btn-default">Apply</button>
+                <a href="#" {{action 'toggleEnteringPromo'}}>Hide</a>
+            </form>
+        </div>
     {{else}}
-        <a href="#" {{action 'toggleEnteringPromo'}}>Enter a promo code</a>
+        <div class="col-xs-12">
+            <a href="#" {{action 'toggleEnteringPromo'}}>Enter a promo code</a>
+        </div>
     {{/if}}
 {{/if}}
 
