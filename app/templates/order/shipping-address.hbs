@@ -13,7 +13,11 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         {{#order-summary order=order}}
-                            {{#order-total order=order}}
+                            {{#order-total 
+                                order=order
+                                setShippingOption="setShippingOption"
+                                setShippingCountry="setShippingCountry"
+                            }}
                                 {{mini-promo-code applyDiscount="applyDiscount" discount=order.discount}}
                             {{/order-total}}
                         {{/order-summary}}

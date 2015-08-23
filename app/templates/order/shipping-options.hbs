@@ -12,7 +12,11 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         {{#order-summary order=order}}
-                            {{#order-total order=order}}
+                            {{#order-total 
+                                order=order
+                                setShippingOption="setShippingOption"
+                                setShippingCountry="setShippingCountry"
+                            }}
                                 {{mini-promo-code applyDiscount="applyDiscount" discount=order.discount}}
                             {{/order-total}}
                         {{/order-summary}}
@@ -24,16 +28,16 @@
     <div class="col-md-8 col-md-pull-4">
         <div class="row">
             <div class="col-md-12">
-                {{!-- TODO figure out why order.deliveryMethod needs to be invoked on 
-                the template in order for {{delivery-methods}} component to re-render
-                when it changes --}}
-                {{!-- <div class="hidden">{{order.deliveryMethod}}</div> --}}
-                {{shipping-options/delivery-methods 
-                    shippingCountry=order.shippingCountry 
-                    selectedDeliveryMethod=order.deliveryMethod 
-                    setDeliveryMethod="setDeliveryMethod"
-                    setShippingCountry="setShippingCountry"
-                }}
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        {{shipping-options/shipping-options 
+                            shippingCountry=order.shippingCountry 
+                            selectedShippingOption=order.shippingOption
+                            setShippingOption="setShippingOption"
+                            setShippingCountry="setShippingCountry"
+                        }}
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">

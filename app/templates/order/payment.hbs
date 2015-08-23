@@ -12,7 +12,11 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         {{#order-summary order=order}}
-                            {{#order-total order=order}}
+                            {{#order-total 
+                                order=order
+                                setShippingOption="setShippingOption"
+                                setShippingCountry="setShippingCountry"
+                            }}
                                 {{mini-promo-code applyDiscount="applyDiscount" discount=order.discount}}
                             {{/order-total}}
                         {{/order-summary}}
@@ -26,7 +30,7 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        {{payment-options 
+                        {{payment-options/payment-options
                             paymentMethods=order.user.paymentBook 
                             selectedPaymentMethod=order.paymentMethod 
                             setPaymentMethod="setPaymentMethod"
