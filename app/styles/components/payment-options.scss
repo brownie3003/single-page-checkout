@@ -2,8 +2,11 @@
     label {
         cursor: pointer;
     }
+    .panel-body {
+        text-align: center;
+    }
     img {
-        max-height: 200px;
+        max-height: 100%;
         max-width: 100%;
     }
     input[type="radio"] {

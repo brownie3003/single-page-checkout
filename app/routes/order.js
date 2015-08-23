@@ -64,6 +64,10 @@ export default Ember.Route.extend({
             let order = this.modelFor('order');
             order.set('billingAddress', billingAddress);
         },
+        setUser: function(user) {
+            let order = this.modelFor('order');
+            return order.set('user', user);
+        },
         // All we do here is clear the shipping address. It represents the user telling us they are 
         // going to submit a new address, but not an actual address.
         // We need to wait for a valid  address before setting it on the order.

@@ -5,8 +5,8 @@ export default Ember.Service.extend({
     
     createUser(user) {
         let store = this.get('store');
-        debugger;
-        store.createRecord('user', { email: user.get('email') });
-        store.save();
+
+        let newUser = store.createRecord('user', { email: user.email });
+        return newUser.save();
     }
 });

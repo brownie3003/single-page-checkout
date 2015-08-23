@@ -5,7 +5,7 @@
         {{moo-address address=address}}
     </label>
 {{/each}}
-<label class="radio {{if (or (eq newAddress targetAddress) (not targetAddress)) 'active'}}">
+<label class="radio {{if showAddressEntryForm 'active'}}">
     <input type="radio" name={{name}} value="" {{action 'enterNewAddress' on="change"}}>
     Enter new address
 </label>

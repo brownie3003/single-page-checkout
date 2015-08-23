@@ -1,10 +1,13 @@
 import Ember from 'ember';
+const { computed } = Ember;
 
 export default Ember.Route.extend({
+    userService: Ember.inject.service(),
     setupController(controller, model) {
         let self = this;
         let order = this.modelFor('order');
         controller.set("order", order);
+        controller.set("userAddresses", order.get('user').get('addressBook'));
         
         // Get the first saved object in addres book and set it as the
         // shipping address for the order. Maybe this should live in a

@@ -5,6 +5,12 @@ export default Ember.Component.extend({
     store: Ember.inject.service(),
     showAddressEntryForm: false,
     newAddress: null,
+    didInsertElement() {
+        let addresses = this.get('addresses')
+        if (addresses.get('content').length === 0) {
+            this.send('enterNewAddress');
+        }
+    },
     actions: {
         // User selects an address from their saved addresses
         selectSavedAddress: function(address){
