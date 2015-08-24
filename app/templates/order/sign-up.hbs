@@ -1,10 +1,5 @@
 {{checkout-nav user=order.user shippingAddress=order.shippingAddress shippingOption=order.shippingOption paymentMethod=order.paymentMethod}}
 
-<div class="row">
-    <div class="col-md-12">
-        <h2>Shipping Address</h2>
-    </div>
-</div>
 
 <div class="row">
     <div class="col-md-4 col-md-push-8">
@@ -29,32 +24,15 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <h4>Shipping Address</h4>
+                        <h4>Tell us about you</h4>
                         <p>
-                            Or you can 
-                            {{#link-to 'order.shipping-options'}} collect from the the MOO shop or an event {{/link-to}}
-                            for free.
+                            This is information is used to contact you about your order, allow you to track your order, save future projects, 
+                            receive future MOO discounts and more.
                         </p>
                         <hr>
-                        {{address-book 
-                            addresses=userAddresses
-                            name="shipping" setAddress="setShippingAddress" 
-                            enterNewAddress="enterNewShippingAddress" 
-                            setNewAddress="setNewShippingAddress" 
-                            saveAddress="saveAddress" 
-                            targetAddress=order.shippingAddress
+                        {{account/sign-up-form
+                            createUser = "createUser"
                         }}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        {{#link-to 'order.shipping-options'}}
-                            <button type="button" name="button" class="btn btn-block btn-moo">Shipping</button>
-                        {{/link-to}}
                     </div>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-{{checkout-nav user=order.user shippingAddress=order.shippingAddress}}
+{{checkout-nav user=order.user shippingAddress=order.shippingAddress shippingOption=order.shippingOption paymentMethod=order.paymentMethod}}
 
 <div class="row">
     <div class="col-md-12">
@@ -14,8 +14,6 @@
                         {{#order-summary order=order}}
                             {{#order-total 
                                 order=order
-                                setShippingOption="setShippingOption"
-                                setShippingCountry="setShippingCountry"
                             }}
                                 {{mini-promo-code applyDiscount="applyDiscount" discount=order.discount}}
                             {{/order-total}}
@@ -46,8 +44,8 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        {{#link-to 'order.shipping-address'}}
-                            <button type="button" name="button" class="btn btn-block btn-moo">Enter Shipping Address</button>
+                        {{#link-to 'order.payment'}}
+                            <button type="button" name="button" class="btn btn-block btn-moo">Payment</button>
                         {{/link-to}}
                     </div>
                 </div>

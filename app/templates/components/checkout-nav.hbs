@@ -1,28 +1,23 @@
 <div class="container-fluid no-padding">
     <ul class="nav navbar-nav">
-        {{#link-to 'order.cart' tagName="li" class="cart-icon vertical-align-middle"}}
-            <a href="#">
-                <span class="glyphicon glyphicon-shopping-cart"></span>
-            </a>
-        {{/link-to}}
-        {{#if (not isSignedIn)}}
-            {{#link-to 'order.account.sign-in' tagName="li" class="vertical-align-middle" classNames=navItemWidth}}
+        {{#if user.isNew}}
+            {{#link-to 'order.sign-up' tagName="li" class="vertical-align-middle" classNames=navItemWidth}}
                 <a href="#">
-                    Sign in
+                    About
                 </a>
             {{/link-to}}
         {{/if}}
-        {{#link-to 'order.shipping-options' tagName="li" class="vertical-align-middle" classNames=navItemWidth}}
+        {{#link-to 'order.shipping-address' tagName="li" class="vertical-align-middle" classNames=navItemWidth disabled=disableAddress}}
             <a href="#">
-                Shipping Option
+                Address
             </a>
         {{/link-to}}
-        {{#link-to 'order.shipping-address' tagName="li" class="vertical-align-middle" classNames=navItemWidth}}
+        {{#link-to 'order.shipping-options' tagName="li" class="vertical-align-middle" classNames=navItemWidth disabled=disableShipping}}
             <a href="#">
-                Shipping Address
+                Shipping
             </a>
         {{/link-to}}
-        {{#link-to 'order.payment' tagName="li" class="vertical-align-middle" classNames=navItemWidth}}
+        {{#link-to 'order.payment' tagName="li" class="vertical-align-middle" classNames=navItemWidth disabled=disablePayment}}
             <a href="#">
                 Payment
             </a>

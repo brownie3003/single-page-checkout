@@ -11,8 +11,8 @@ Router.map(function() {
         this.route('cart');
         this.route('account', function() {
             this.route('sign-in');
-            this.route('sign-up');
         });
+        this.route('sign-up', { path: "/about-you"});
         this.route('shipping-address');
         this.route('shipping-options');
         this.route('payment');

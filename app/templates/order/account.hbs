@@ -1,17 +1,12 @@
-<div class="row">
-    <div class="col-md-12">
-        <h2>Sign in</h2>
-    </div>
-</div>
-
-<div class="row">
+ <div class="row">
     <div class="col-md-10 col-md-offset-1 col-xs-12">
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="row">
                     <div class="col-xs-12">
+                        <h4>Got a MOO account?</h4>
                         <p>
-                            Please log in.
+                            Please sign in.
                         </p>
                     </div>
                 </div>
@@ -21,38 +16,20 @@
                     </div>
                 </div>
                 <hr>
-                <div class="row">
-                    <div class="col-xs-12" style="text-align:center;">
-                        <strong>OR</strong>
-                    </div>
-                </div>
+                <h4>New to MOO?</h4>
+                <p>
+                    Good to meet you friend.
+                </p>
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-xs-12">
+                        
                         <div class="form-group">
-                            {{#link-to 'order.account.sign-in' class="account-button"}}
-                                <button type="button" name="button" class="btn btn-default btn-block">Sign In with Email</button>
+                            {{#link-to 'order.sign-up' class="account-button"}}
+                                <button type="button" name="button" class="btn btn-moo btn-block">Proceed to checkout</button>
                             {{/link-to}}
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-10 col-md-offset-1 col-xs-12">
-                        <div class="form-group">
-                            {{#link-to 'order.account.sign-up' class="account-button"}}
-                                <button type="button" name="button" class="btn btn-default btn-block">Sign Up with Email</button>
-                            {{/link-to}}
-                        </div>
-                    </div>
-                </div>
-                {{!-- <div class="row">
-                    <div class="col-md-10 col-md-offset-1 col-xs-12">
-                        <div class="form-group">
-                            {{#link-to 'order.shipping-options' class="account-button"}}
-                                <button type="button" name="button" class="btn btn-default btn-block">Continue with Guest Checkout</button>
-                            {{/link-to}}
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         </div>
     </div>

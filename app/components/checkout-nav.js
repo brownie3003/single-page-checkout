@@ -12,12 +12,30 @@ export default Ember.Component.extend({
             return true;
         }
     }),
-    navItemWidth: computed('isSignedIn', function() {
-        let isSignedIn = this.get('isSignedIn');
-        if (isSignedIn) {
-            return "thirty-percent"
-        } else {
+    // TODO figure out logic for disabling links
+    // disableAddress: computed('shippingAddress', function() {
+    //     let shippingAddress = this.get('shippingAddress');
+    //     
+    //     return Ember.isEmpty(shippingAddress.get('content'));
+    // }),
+    // disableShipping: computed('disableAddress', 'shippingOption', function() {
+    //     let disableAddress = this.get('disableAddress');
+    //     let shippingOption = this.get('shippingOption');
+    //     
+    //     return (disableAddress && shippingOption);
+    // }),
+    // disablePayment: computed('disableShipping', 'paymentMethod', function() {
+    //     let disableShipping = this.get('disableShipping');
+    //     let paymentMethod = this.get('paymentMethod');
+    //     
+    //     return !(disableShipping && paymentMethod)
+    // }),
+    navItemWidth: computed('isNew', function() {
+        let isNew = this.get('user').get('isNew');
+        if (isNew) {
             return "twenty-two-percent"
+        } else {
+            return "thirty-percent"
         }
     }),
     hasShippingAddress: computed('shippingAddress', function() {
