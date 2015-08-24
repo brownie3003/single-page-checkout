@@ -2,6 +2,7 @@ import Ember from 'ember';
 const { computed } = Ember;
 
 export default Ember.Route.extend({
+    shippingService: Ember.inject.service(),
     model: function(params) {
         let store = this.store;
         let order = store.find('order', params.order_id);
@@ -10,12 +11,30 @@ export default Ember.Route.extend({
     },
     afterModel(model) {
         // Make sure items promise is resolved for rendering of components.
-        model.get('paymentMethod');
-        return model.get('items');
+        let order = model;
+        
+        // If, for whatever reason, we don't have a shipping option, let's set the default.
+        model.get('shippingOption').then(shippingOption => {
+            if (!shippingOption) {
+                return this.setDefaultshippingOption(order);
+            }
+        })
+        
+        order.get('paymentMethod');
+        
+        return order.get('items');
     },
     setupController(controller, model) {
         controller.set("order", model);
-        controller.set("currentRoute", this.get("routeName"));
+    },
+    setDefaultshippingOption(model) {
+        let shippingService = this.get('shippingService');
+        let shippingCountry = model.get('shippingCountry');
+    
+        return shippingService.getDefaultShippingOption(shippingCountry)
+            .then(defaultshippingOption => {
+                model.set('shippingOption', defaultshippingOption);
+            });
     },
     actions: {
         setShippingOption: function(shippingOption) {
