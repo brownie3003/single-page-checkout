@@ -1,2 +1,8 @@
-{{input value=value type=type class="form-control" placeholder=placeHolder focus-out="checkForErrors"}}
+{{#if hasError}}
+    <small>{{errors}}</small>
+{{/if}}
+<div class="input-group">
+    {{input value=value type=type class="form-control" placeholder=placeHolder focus-out="checkForErrors" key-up="checkForSuccess"}}
+    <span class="input-group-addon {{if hasSuccess 'glyphicon glyphicon-ok'}} {{if hasError 'glyphicon glyphicon-remove'}}"></span>
+</div>
 {{yield}}

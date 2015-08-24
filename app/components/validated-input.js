@@ -15,6 +15,13 @@ export default Ember.Component.extend({
                 this.set('hasError', false);
             }
             this.sendAction();
+        },
+        checkForSuccess: function() {
+            var errors = this.get('errors');
+            if (errors.length === 0) {
+                this.set('hasSuccess', true);
+                this.set('hasError', false);
+            }
         }
     }
 });

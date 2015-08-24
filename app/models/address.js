@@ -17,7 +17,7 @@ export default DS.Model.extend(EmberValidations, {
     validations: {
         firstName: {
             presence: {
-                message: "Hello Sweetums, please tell us your first name so we can get your package to you."
+                message: "We require a first Name"
             }
         },
         lastName: {
