@@ -8,30 +8,13 @@
 </div>
 <div class="row">
     <div class="col-xs-8 text-right">
-        <strong>Shipping Price</strong>
-        {{#if showShippingOptions}}
-            (<a href="#" {{action 'toggleShowShippingOptions'}}>Hide</a>):
-        {{else}}
-            (<a href="#" {{action 'toggleShowShippingOptions'}}>Change</a>):
-        {{/if}}
+        <strong>Shipping Price ({{order.shippingOption.description}})</strong>
     </div>
     <div class="col-xs-4 text-right">
         {{moo-price finalPrice=order.shippingOption.price}}
     </div>
 </div>
 
-{{#if showShippingOptions}}
-    <div class="row shipping-options">
-        <div class="col-xs-12">
-            {{shipping-options/shipping-options
-                shippingCountry=order.shippingCountry
-                selectedShippingOption=order.shippingOption
-                setShippingOption=setShippingOption
-                setShippingCountry=setShippingCountry
-            }}
-        </div>
-    </div>
-{{/if}}
 <div class="row">
     <div class="col-xs-8 text-right">
         <strong>VAT:</strong>

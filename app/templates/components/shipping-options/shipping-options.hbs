@@ -1,20 +1,35 @@
-<form class="form-inline">
-    <div class="form-group">
-        <label>Select shipping country:</label>
-        {{#x-select value=shippingCountry action="setShippingCountry" class="form-control"}}
-            {{#x-option value="UK"}}UK{{/x-option}}
-            {{#x-option value="USA"}}USA{{/x-option}}
-        {{/x-select}}
+{{!-- Will be collapsed by default, you must set collapsed=false if you don't want to see collapsed version of this --}}
+{{#if collapsed}}
+    <div class="col-xs-9 vertical-align-middle">
+        <a href="#" {{action 'toggleCollapsed'}}>View your shipping options</a>
     </div>
-</form>
-<div class="row">
-    <div class="col-xs-12">
-        {{shipping-options/delivery-options
-            deliveryOptions=shippingOptions
-            selectedDeliveryOption=selectedShippingOption
-            setShippingOption=setShippingOption
+    <div class="col-xs-1 col-xs-push-2 vertical-align-middle">
+        <button type="button" name="button" class="btn btn-moo btn-sm pull-right" {{action 'toggleCollapsed'}}>
+            <span class="glyphicon glyphicon-triangle-bottom"></span>
+        </button>
+    </div>
+{{else}}
+    {{!-- Will not be shown by default, if you want users to be able to change country, set showShippingCountry=true --}}
+    {{#if showShippingCountry}}
+        {{shipping-options/shipping-country
+            shippingCountry=shippingCountry
+            setShippingCountry=setShippingCountry
+            showShippingOptions="showShippingOptions"
         }}
+    {{/if}}
+{{/if}}
+
+{{!-- Will not be shown by default, you must set showShippingOptions=true if you want users to be able to see this --}}
+{{#if showShippingOptions}}
+    <div class="row">
+        <div class="col-xs-12">
+            {{shipping-options/delivery-options
+                deliveryOptions=shippingOptions
+                selectedDeliveryOption=selectedShippingOption
+                setShippingOption=setShippingOption
+            }}
+        </div>
     </div>
-</div>
+{{/if}}
 
 {{yield}}

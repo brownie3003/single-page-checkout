@@ -21,17 +21,30 @@
     </div>
 </div>
 
+{{!-- Shipping Options --}}
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                {{shipping-options/shipping-options
+                    shippingCountry=order.shippingCountry
+                    selectedShippingOption=order.shippingOption
+                    setShippingOption="setShippingOption"
+                    setShippingCountry="setShippingCountry"
+                    showShippingCountry=true
+                }}
+            </div>
+        </div>
+    </div>
+</div>
+
 {{!-- order-total  --}}
 <div class="row">
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-body">
-                {{!-- We are not yielding the shipping options component, so we need to 
-                pass in the setShippingOption & setShippingCountry actions.  --}}
                 {{#order-total 
                     order=order
-                    setShippingOption="setShippingOption"
-                    setShippingCountry="setShippingCountry"
                 }}
                     {{mini-promo-code applyDiscount="applyDiscount" discount=order.discount}}
                 {{/order-total}}
@@ -39,6 +52,8 @@
         </div>
     </div>
 </div>
+
+{{!-- Let's GO GO GO --}}
 <div class="row">
     <div class="col-md-12">
         <div class="panel panel-default">

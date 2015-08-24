@@ -1,0 +1,28 @@
+<h4>Shipping Options</h4>
+<p>
+    Tell us your country and postal code and we'll calculate your shipping options.
+</p>
+<form class="form-inline">
+    <div class="form-group">
+        <label>Select shipping country:</label>
+        {{#x-select value=shippingCountry action="setShippingCountry" class="form-control"}}
+            {{#x-option value="UK"}}UK{{/x-option}}
+            {{#x-option value="USA"}}USA{{/x-option}}
+        {{/x-select}}
+    </div>
+</form>
+<form class="form-inline">
+    <div class="form-group">
+        <label>Postal Code</label>
+        <div class="input-group">
+            <input type="text" class="form-control">
+            <span class="input-group-btn">
+                <button id="filter" class="btn btn-moo btn-block" {{action "showShippingOptions"}}>
+                    Calculate
+                </button>
+            </span>
+        </div>
+    </div>
+</form>
+
+{{yield}}
