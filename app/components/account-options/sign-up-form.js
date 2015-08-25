@@ -7,6 +7,7 @@ export default Ember.Component.extend(EmberValidations, {
     user: null,
     password: null,
     passwordConfirmation: null,
+    showAllErrors: false,
     didInsertElement() {
         let store = this.get('store');
         
@@ -32,12 +33,16 @@ export default Ember.Component.extend(EmberValidations, {
     },
     actions: {
         createUser() {
-            // TODO I would like this to be a promise, as we should sync
-            // with server and return success/failure/pending, 
-            // but at the moment 'send' & 'sendAction'
-            // are not a promises, they return true or false.
-            // potential way around http://discuss.emberjs.com/t/sendaction-as-a-promise/3143
-            this.sendAction('createUser', this.get('user'));
+            if (this.get('signUpIsValid')) {
+                // TODO I would like this to be a promise, as we should sync
+                // with server and return success/failure/pending, 
+                // but at the moment 'send' & 'sendAction'
+                // are not a promises, they return true or false.
+                // potential way around http://discuss.emberjs.com/t/sendaction-as-a-promise/3143
+                this.sendAction('createUser', this.get('user'));
+            } else {
+                this.set('showAllErrors', true);
+            }
         }
     }
 });

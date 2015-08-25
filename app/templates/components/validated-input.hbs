@@ -1,3 +1,6 @@
+{{!-- Need to invoke this computed property on the template in order for it to get recalculated when showAllErrors changes --}}
+{{showErrors}}
+
 {{#if hasError}}
     <small>{{errors}}</small>
 {{/if}}

@@ -1,9 +1,18 @@
 import Ember from 'ember';
+const { computed } = Ember;
 
 export default Ember.Component.extend({
     classNameBindings: ['hasError', 'hasSuccess'],
-    hasError: false,
     hasSuccess: false,
+    hasError: false,
+    // Computed function that observes if the parent form wants all errors to be shown.
+    showErrors: computed('showAllErrors', function() {
+        let showAllErrors = this.get('showAllErrors');
+        
+        if (showAllErrors) {
+            this.set('hasError', true);
+        }
+    }),
     actions: {
         checkForErrors: function() {
             var errors = this.get('errors');
