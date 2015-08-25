@@ -4,13 +4,8 @@ const { computed } = Ember;
 export default Ember.Component.extend({
     tagName: "nav",
     classNames: ['navbar', 'navbar-default', 'checkout-nav'],
-    isSignedIn: computed('user', function() {
-        if (this.get('user') === undefined || this.get('user').get('content') === null) {
-            return false;
-        }
-        else {
-            return true;
-        }
+    isNewUser: computed('user', function() {
+        return this.get('user').get('isNew');
     }),
     // TODO figure out logic for disabling links
     // disableAddress: computed('shippingAddress', function() {

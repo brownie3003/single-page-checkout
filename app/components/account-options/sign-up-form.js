@@ -7,13 +7,8 @@ export default Ember.Component.extend(EmberValidations, {
     user: null,
     password: null,
     passwordConfirmation: null,
+    // Set this true in any failed action that needs to indicate to users the errors, e.g. submitting the form with incomplete data.
     showAllErrors: false,
-    didInsertElement() {
-        let store = this.get('store');
-        
-        let user = store.createRecord('user');
-        this.set('user', user);
-    },
     signUpIsValid: computed(
         'user.firstName', 
         'user.lastName', 

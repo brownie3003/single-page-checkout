@@ -3,10 +3,13 @@ import Ember from 'ember';
 export default Ember.Route.extend({
     userService: Ember.inject.service(),
     model() {
-        return this.modelFor('order');
+        return this.store.createRecord('user');
     },
     setupController(controller, model) {
-        controller.set('order', model);
+        let order = this.modelFor('order');
+        
+        controller.set('user', model);
+        controller.set('order', order);
     },
     actions: {
         createUser(user) {
