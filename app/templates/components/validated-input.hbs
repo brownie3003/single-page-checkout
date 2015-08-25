@@ -1,11 +1,8 @@
-{{!-- Need to invoke this computed property on the template in order for it to get recalculated when showAllErrors changes --}}
-{{showErrors}}
-
-{{#if hasError}}
+{{#if showErrors}}
     <small>{{errors}}</small>
 {{/if}}
-<div class="input-group">
+<div class="input-group {{if showSuccess 'has-success'}} {{if showErrors 'has-error'}}">
     {{input value=value type=type class="form-control" placeholder=placeHolder focus-out="checkForErrors" key-up="checkForSuccess"}}
-    <span class="input-group-addon {{if hasSuccess 'glyphicon glyphicon-ok'}} {{if hasError 'glyphicon glyphicon-remove'}}"></span>
+    <span class="input-group-addon {{if showSuccess 'glyphicon glyphicon-ok'}} {{if showErrors 'glyphicon glyphicon-remove'}}"></span>
 </div>
 {{yield}}

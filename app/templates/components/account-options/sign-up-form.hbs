@@ -2,23 +2,23 @@
     <form class="form-group" {{action 'createUser' on="submit"}}>
         <div class="form-group">
             <label>First Name</label>
-            {{validated-input type="text" value=user.firstName placeHolder="First Name" errors=user.errors.firstName showAllErrors=showAllErrors}}
+            {{validated-input type="text" value=user.firstName placeHolder="First Name" errors=user.errors.firstName showAllValidation=showAllValidation}}
         </div>
         <div class="form-group">
             <label>Last Name</label>
-            {{validated-input type="text" value=user.lastName placeHolder="Last Name" errors=user.errors.lastName showAllErrors=showAllErrors}}
+            {{validated-input type="text" value=user.lastName placeHolder="Last Name" errors=user.errors.lastName showAllValidation=showAllValidation}}
         </div>
         <div class="form-group">
             <label>Email</label>
-            {{validated-input type="email" value=user.email placeHolder="Email" errors=user.errors.email showAllErrors=showAllErrors}}
+            {{validated-input type="email" value=user.email placeHolder="Email" errors=user.errors.email showAllValidation=showAllValidation}}
         </div>
         <div class="form-group">
             <label>Password</label>
-            {{validated-input type="password" value=password placeHolder="Password" errors=errors.password showAllErrors=showAllErrors}}
+            {{validated-input type="password" value=password placeHolder="Password" errors=errors.password showAllValidation=showAllValidation}}
         </div>
         <div class="form-group">
             <label>Confirm Password</label>
-            {{validated-input type="password" value=passwordConfirmation placeHolder="Repeat Password" errors=errors.passwordConfirmation showAllErrors=showAllErrors}}
+            {{validated-input type="password" value=passwordConfirmation placeHolder="Repeat Password" errors=errors.passwordConfirmation showAllValidation=showAllValidation}}
         </div>
         <button type="submit" class="btn btn-moo btn-block" {{action 'createUser'}}>Addresses</button>
     </form>

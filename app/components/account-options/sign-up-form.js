@@ -7,8 +7,8 @@ export default Ember.Component.extend(EmberValidations, {
     user: null,
     password: null,
     passwordConfirmation: null,
-    // Set this true in any failed action that needs to indicate to users the errors, e.g. submitting the form with incomplete data.
-    showAllErrors: false,
+    // Set this true in any failed action that needs to indicate to users the validation errors, e.g. submitting the form with incomplete data.
+    showAllValidation: false,
     signUpIsValid: computed(
         'user.firstName', 
         'user.lastName', 
@@ -36,7 +36,7 @@ export default Ember.Component.extend(EmberValidations, {
                 // potential way around http://discuss.emberjs.com/t/sendaction-as-a-promise/3143
                 this.sendAction('createUser', this.get('user'));
             } else {
-                this.set('showAllErrors', true);
+                this.set('showAllValidation', true);
             }
         }
     }
