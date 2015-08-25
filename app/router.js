@@ -13,7 +13,7 @@ Router.map(function() {
             this.route('sign-in');
         });
         this.route('sign-up', { path: "/about-you"});
-        this.route('shipping-address');
+        this.route('addresses');
         this.route('shipping-options');
         this.route('payment');
     });

@@ -7,7 +7,7 @@ export default Ember.Component.extend({
     newAddress: null,
     didInsertElement() {
         let addresses = this.get('addresses')
-        if (addresses.get('content').length === 0) {
+        if (addresses.length === 0) {
             this.send('enterNewAddress');
         }
     },
@@ -19,8 +19,12 @@ export default Ember.Component.extend({
         },
         // User attempts to enter new address, clear the current address and create a new record instance.
         enterNewAddress: function() {
-            var store = this.get('store');
-            var newAddress = store.createRecord('address');
+            let store = this.get('store');
+            let user = this.get('user');
+            let newAddress = store.createRecord('address');
+            newAddress.set('firstName', user.get('firstName'));
+            newAddress.set('lastName', user.get('lastName'));
+            newAddress.set('companyName', user.get('companyName'));
             this.set('showAddressEntryForm', true);
             this.set('newAddress', newAddress);
             this.sendAction('enterNewAddress');

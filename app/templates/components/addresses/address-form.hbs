@@ -26,7 +26,7 @@
                         <option selected disabled>Choose your address</option>
                         {{#each addresses as |address|}}
                             {{#x-option value=address}}
-                                {{moo-address address=address}}
+                                {{addresses/moo-address address=address}}
                             {{/x-option}}
                         {{/each}}
                     {{/x-select}}

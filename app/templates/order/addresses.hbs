@@ -1,12 +1,6 @@
 {{checkout-nav user=order.user shippingAddress=order.shippingAddress shippingOption=order.shippingOption paymentMethod=order.paymentMethod}}
 
 <div class="row">
-    <div class="col-md-12">
-        <h2>Shipping Address</h2>
-    </div>
-</div>
-
-<div class="row">
     <div class="col-md-4 col-md-push-8">
         <div class="row">
             <div class="col-md-12">
@@ -36,8 +30,9 @@
                             for free.
                         </p>
                         <hr>
-                        {{address-book 
-                            addresses=userAddresses
+                        {{addresses/address-book 
+                            addresses=addressBook
+                            user=user
                             name="shipping" setAddress="setShippingAddress" 
                             enterNewAddress="enterNewShippingAddress" 
                             setNewAddress="setNewShippingAddress" 

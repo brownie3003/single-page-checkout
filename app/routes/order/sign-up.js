@@ -16,11 +16,11 @@ export default Ember.Route.extend({
             let userService = this.get('userService');
             
             this.send('setUser', user);
-            this.transitionTo('order.shipping-address');
+            this.transitionTo('order.addresses');
             // Not syncing to users to keep record isNew for nav
             // userService.createUser(user).then((user) => {
             //     this.send('setUser', user);
-            //     this.transitionTo('order.shipping-address');
+            //     this.transitionTo('order.addresses');
             // });
         }
     }

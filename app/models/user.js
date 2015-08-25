@@ -41,9 +41,17 @@ export default DS.Model.extend(EmberValidations, {
     FIXTURES: [
         {
             id: 1,
+            firstName: "Stephen",
+            lastName: "Hemmingswiggle",
             email: "stephenh@moo.com",
             addressBook: [1, 2],
             paymentBook: [1, 2, 3]
+        },
+        {
+            id: 2,
+            firstName: "Eddard",
+            lastName: "Stark",
+            email: "eddard@winterfell.com"
         }
     ]
 });
