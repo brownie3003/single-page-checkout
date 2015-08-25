@@ -10,6 +10,7 @@
   "scripts": {
     "start": "ember server",
     "build": "ember build",
+    "deploy": "ember divshot deploy development",
     "test": "ember test"
   },
   "repository": "",
