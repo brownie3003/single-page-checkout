@@ -21,7 +21,7 @@ export default Ember.Component.extend({
     hasSuccess: computed('errors', function() {
         let errors = this.get('errors');
         
-        return (errors.length === 0);
+        return (errors !== undefined && errors.length === 0)
     }),
     hasError: computed('hasSuccess', function() {
         return !this.get('hasSuccess');
