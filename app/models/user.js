@@ -10,13 +10,31 @@ export default DS.Model.extend(EmberValidations, {
     
     validations: {
         firstName: {
-            presence: true
+            presence: {
+                message: "We require a first name"
+            },
+            length: {
+                minimum: 2,
+                messages: {
+                    tooShort: " Your last name must be at least 2 characters"
+                }
+            }
         },
         lastName: {
-            presence: true
+            presence: {
+                message: "We require a last name"
+            },
+            length: {
+                minimum: 2,
+                messages: {
+                    tooShort: "Your last name must be at least 2 characters"
+                }
+            }
         },
         email: {
-            presence: true
+            presence: {
+                message: "We require an email address"
+            }
         }
     }
 }).reopenClass({

@@ -13,11 +13,11 @@
             {{validated-input type="email" value=user.email placeHolder="Email" errors=user.errors.email showAllValidation=showAllValidation}}
         </div>
         <div class="form-group">
-            <label>Password</label>
+            <label>Password</label><span> (minimum 8 characters)</span>
             {{validated-input type="password" value=password placeHolder="Password" errors=errors.password showAllValidation=showAllValidation}}
         </div>
         <div class="form-group">
-            <label>Confirm Password</label>
+            <label>Confirm Password</label><span> (must match password)</span>
             {{validated-input type="password" value=passwordConfirmation placeHolder="Repeat Password" errors=errors.passwordConfirmation showAllValidation=showAllValidation}}
         </div>
         <button type="submit" class="btn btn-moo btn-block" {{action 'createUser'}}>Addresses</button>
