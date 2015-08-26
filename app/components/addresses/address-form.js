@@ -6,6 +6,8 @@ export default Ember.Component.extend({
     addresses: null,
     showAddressService: true,
     showFullForm: false,
+    // Set this true in any failed action that needs to indicate to users the validation errors, e.g. submitting the form with incomplete data.
+    showAllValidation: false,
     actions: {
         checkAddressIsValid: function() {
             let address = this.get('address');
@@ -39,6 +41,7 @@ export default Ember.Component.extend({
             this.set('showAddressService', false);
             this.set('showFullForm', true);
             this.send('checkAddressIsValid');
+            this.set('showAllValidation', true)
         },
         showAddressService: function() {
             this.set('showAddressService', true);
