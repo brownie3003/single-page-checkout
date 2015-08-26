@@ -4,10 +4,13 @@
         {{addresses/moo-address address=address}}
     </label>
 {{/each}}
-<label class="radio {{if showAddressEntryForm 'active'}}">
-    <input type="radio" name={{name}} value="" {{action 'enterNewAddress' on="change"}}>
-    Enter new address
-</label>
+{{!-- If we have any saved addresses then we show this radio to add a new address --}}
+{{#if addresses}}
+    <label class="radio {{if showAddressEntryForm 'active'}}">
+        <input type="radio" name={{name}} value="" {{action 'enterNewAddress' on="change"}}>
+        Enter new address
+    </label>
+{{/if}}
 {{#if showAddressEntryForm}}
     {{addresses/address-form 
         address=newAddress 

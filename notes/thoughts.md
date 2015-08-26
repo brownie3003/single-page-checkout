@@ -3,6 +3,8 @@
 Thoughts about assumptions I've made in the prototype and building it.
 
 ###Ember
+
+###TODO this is WRONG. Shipping options route loads data. Only example of services is PostCode Anywhere
 As I've been building this, I've learnt a lot about async programming. I've tried to 
 follow a Data Down Actions Up (DDAU) approach through out. For example the 'delivery-method' component will sit in a tree like this:
 

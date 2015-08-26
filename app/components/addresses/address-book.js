@@ -6,7 +6,7 @@ export default Ember.Component.extend({
     showAddressEntryForm: false,
     newAddress: null,
     didInsertElement() {
-        let addresses = this.get('addresses')
+        let addresses = this.get('addresses');
         if (addresses.length === 0) {
             this.send('enterNewAddress');
         }

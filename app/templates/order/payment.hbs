@@ -1,4 +1,4 @@
-{{checkout-nav user=order.user shippingAddress=order.shippingAddress shippingOption=order.shippingOption paymentMethod=order.paymentMethod}}
+{{checkout-nav user=user shippingAddress=order.shippingAddress shippingOption=order.shippingOption paymentMethod=order.paymentMethod}}
 
 <div class="row">
     <div class="col-md-4 col-md-push-8">
@@ -26,7 +26,7 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         {{payment-options/payment-options
-                            paymentMethods=order.user.paymentBook 
+                            paymentMethods=paymentBook 
                             selectedPaymentMethod=order.paymentMethod 
                             setPaymentMethod="setPaymentMethod"
                             clearPaymentMethod="clearPaymentMethod"

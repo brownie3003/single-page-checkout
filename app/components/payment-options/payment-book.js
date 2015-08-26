@@ -4,6 +4,12 @@ export default Ember.Component.extend({
     store: Ember.inject.service(),
     showCardEntryForm: false,
     newCard: null,
+    didInsertElement() {
+        let paymentMethods = this.get('paymentMethods');
+        if (paymentMethods.length === 0) {
+            this.send('enterNewCard');
+        }
+    },
     actions: {
         setPaymentMethod(paymentMethod) {
             this.sendAction('setPaymentMethod', paymentMethod);

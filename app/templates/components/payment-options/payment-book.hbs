@@ -2,8 +2,11 @@
     {{payment-options/payment-method paymentMethod=paymentMethod selectedPaymentMethod=selectedPaymentMethod setPaymentMethod=setPaymentMethod}}
 {{/each}}
 
-{{#if (not showCardEntryForm)}}
-    <button type="button" class="btn btn-block btn-default" {{action 'enterNewCard'}}>Use a different card</button>
+{{#if paymentMethods}}
+    <label class="radio {{if showCardEntryForm 'active'}}">
+        <input type="radio" name={{name}} value="" {{action 'enterNewCard' on "change"}}>
+        Enter new card
+    </label>
 {{/if}}
 
 {{#if showCardEntryForm}}
