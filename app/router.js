@@ -16,6 +16,7 @@ Router.map(function() {
         this.route('addresses');
         this.route('shipping-options');
         this.route('payment');
+        this.route('confirmation');
     });
 });
 
