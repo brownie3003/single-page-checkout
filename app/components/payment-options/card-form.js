@@ -3,6 +3,7 @@ import EmberValidations from 'ember-validations';
 const { computed } = Ember;
 
 export default Ember.Component.extend(EmberValidations, {
+    classNames: ['row'],
     card: null,
     expiryMonth: null,
     expiryYear: null,
@@ -24,7 +25,15 @@ export default Ember.Component.extend(EmberValidations, {
     validations : {
         expiryYear: { presence: true },
         expiryMonth: { presence: true },
-        ccv: { presence: true }
+        ccv: {
+            presence: true,
+            length: {
+                minimum: 3,
+                messages: {
+                    tooShort: "CCV must be 3 characters"
+                }
+            }
+        }
     },
     actions: {
         checkCardIsValid() {

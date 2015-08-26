@@ -1,7 +1,7 @@
 <h4>Select a payment method</h4>
 <div class="row">
     {{#each paymentOptions as |paymentOption|}}
-        <div class="col-xs-3">
+        <div class="col-xs-6 col-sm-3">
             <label class="radio">
                 <div class="panel panel-default">
                     <div class="panel-body {{if (eq paymentOption selectedPaymentOption) 'active'}}">
@@ -19,15 +19,20 @@
         </div>
     {{/each}}
 </div>
+<hr>
 {{#if (eq selectedPaymentOption "creditCard")}}
     <div class="row">
         <div class="col-xs-12">
             {{payment-options/payment-book 
-                paymentMethods=paymentMethods 
+                paymentMethods=paymentMethods
+                name="payment"
                 selectedPaymentMethod=selectedPaymentMethod 
                 setPaymentMethod=setPaymentMethod
                 clearPaymentMethod=clearPaymentMethod
                 savePaymentMethod=savePaymentMethod
+                targetPaymentMethod=targetPaymentMethod
+                shippingAddress=shippingAddress
+                user=user
             }}
         </div>
     </div>

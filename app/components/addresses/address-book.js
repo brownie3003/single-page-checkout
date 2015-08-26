@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-    classNames: ['address-book'],
+    classNames: ['book'],
     store: Ember.inject.service(),
     showAddressEntryForm: false,
     newAddress: null,

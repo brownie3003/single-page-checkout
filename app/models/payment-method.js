@@ -11,6 +11,7 @@ export default DS.Model.extend(EmberValidations, {
     name: DS.attr('string'),
     type: DS.attr('string'),
     user: DS.belongsTo('user', { async: true }),
+    address: DS.belongsTo('address', { async: true }),
     
     // Computed properties
     lastFourDigits: computed('cardNumber', function() {
@@ -21,9 +22,25 @@ export default DS.Model.extend(EmberValidations, {
     }),
     
     validations: {
-        cardNumber: { presence: true },
+        cardNumber: { 
+            presence: true,
+            length: {
+                minimum: 8,
+                messages: {
+                    tooShort: "We are just testing but we need 8 digits for this"
+                }
+            }
+        },
         expiryDate: { presence: true },
-        name: { presence: true }
+        name: { 
+            presence: true,
+            length: {
+                minimum: 2,
+                messages: {
+                    tooShort: "Your Name be too short"
+                }
+            }
+        }
     }
 }).reopenClass({
     FIXTURES: [
@@ -33,7 +50,8 @@ export default DS.Model.extend(EmberValidations, {
             expiryDate: "11/19",
             name: "Rob Stark",
             type: "VISA",
-            user: 1
+            user: 1,
+            address: 1
         },
         {
             id: 2,
@@ -41,7 +59,8 @@ export default DS.Model.extend(EmberValidations, {
             expiryDate: "02/18",
             name: "Jon Snow",
             type: "AMEX",
-            user: 1
+            user: 1,
+            address: 1
         },
         {
             id: 3,
@@ -49,7 +68,8 @@ export default DS.Model.extend(EmberValidations, {
             expiryDate: "04/21",
             name: "Arya Stark",
             type: "MASTERCARD",
-            user: 1
+            user: 1,
+            address: 1
         }
     ]
 });

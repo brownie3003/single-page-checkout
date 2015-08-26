@@ -1,19 +1,52 @@
+{{#if paymentMethods}}
+    <h4>Saved Cards</h4>
+{{/if}}
+
 {{#each paymentMethods as |paymentMethod|}}
-    {{payment-options/payment-method paymentMethod=paymentMethod selectedPaymentMethod=selectedPaymentMethod setPaymentMethod=setPaymentMethod}}
+    <label class="radio {{if (eq paymentMethod.id targetPaymentMethod.id) 'active'}}">
+        <div class="row">
+            <input type="radio" name={{name}} value={{paymentMethod}} {{action 'selectSavedPayment' paymentMethod on="change"}}>
+            <div class="col-md-3" style="text-align: center;">
+                <img src="assets/images/credit_cards/{{paymentMethod.type}}.png" alt="{{paymentMethod.type}} logo" />
+            </div>
+            <div class="col-xs-9 col-md-6">
+                <strong>{{paymentMethod.name}}</strong><br>
+                <strong>Ending {{paymentMethod.lastFourDigits}}</strong><br>
+                <span>Expires {{paymentMethod.expiryDate}}</span>
+            </div>
+            <div class="col-xs-1 col-xs-push-1 col-md-1 col-md-push-2">
+                <button type="button" name="button" class="btn btn-default">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </button>
+            </div>
+        </div>
+    </label>
 {{/each}}
 
-{{#if paymentMethods}}
-    <label class="radio {{if showCardEntryForm 'active'}}">
-        <input type="radio" name={{name}} value="" {{action 'enterNewCard' on "change"}}>
-        Enter new card
-    </label>
-{{/if}}
-
-{{#if showCardEntryForm}}
-    {{payment-options/card-form 
-        card=newCard 
-        setPaymentMethod=setPaymentMethod 
-        savePaymentMethod=savePaymentMethod}}
-{{/if}}
+<label class="radio {{if showCardEntryForm 'active'}}">
+    <input type="radio" name={{name}} value="" {{action 'enterNewCard' on="change"}}>
+    <span>Enter new card</span>
+    <span class="glyphicon glyphicon-plus pull-right"></span>
+    {{#if showCardEntryForm}}
+        {{#payment-options/card-form 
+            card=newCard 
+            setPaymentMethod=setPaymentMethod 
+            savePaymentMethod=savePaymentMethod
+        }}
+            <hr>
+            <h4>Billing Address</h4>
+            <div class="form-group">
+                <div class="col-lg-12">
+                    <button type="button" class="btn btn-default btn-block" {{action 'useShippingAsBilling'}}>Use Shipping Address</button>
+                </div>
+            </div>
+            {{addresses/address-form
+                showFullForm=showFullAddressFormForBilling
+                showAddressService=showAddressServiceForBilling
+                address=billingAddress
+            }}
+        {{/payment-options/card-form}}
+    {{/if}}
+</label>
 
 {{yield}}

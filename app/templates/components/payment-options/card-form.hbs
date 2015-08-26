@@ -1,5 +1,5 @@
 <div class="col-lg-12">
-    <form class="form-horizontal">
+    <form>
         <div class="form-group">
             <label>Name</label>
                 {{validated-input value=card.name type="text" placeHolder="Name on card*" errors=card.errors.name action="checkCardIsValid"}}
@@ -11,10 +11,10 @@
         <div class="form-group">
             <label>Expiry Date (MM / YY)</label>
             <div class="row">
-                <div class="col-xs-3">
+                <div class="col-md-3 col-xs-5">
                     {{validated-input value=expiryMonth type="text" placeHolder="MM" errors=errors.expiryMonth action="checkCardIsValid"}}
                 </div>
-                <div class="col-xs-3">
+                <div class="col-md-3 col-xs-5">
                     {{validated-input value=expiryYear type="text" placeHolder="YY" errors=errors.expiryYear action="checkCardIsValid"}}
                 </div>
                 {{!-- TODO still need to figure out why I need to invoke this computed property on the HTMLBars template in order for it
@@ -27,13 +27,12 @@
         <div class="form-group">
             <label>CCV</label>
             <div class="row">
-                <div class="col-xs-4">
+                <div class="col-md-4 col-xs-8">
                     {{validated-input value=ccv type="text" placeHolder="CCV" errors=errors.ccv action="checkCardIsValid"}}
                 </div>
             </div>
         </div>
-        <button type="submit" class="btn btn-success btn-block" disabled={{isInvalid}} {{action "savePaymentMethod" card}}>Save Card</button>
+        {{yield}}
+        <button type="button" class="btn btn-success btn-block" disabled={{isInvalid}} {{action "savePaymentMethod" card}}>Save Card</button>
     </form>
 </div>
-
-{{yield}}

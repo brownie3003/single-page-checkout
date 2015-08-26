@@ -4,7 +4,6 @@ const { computed } = Ember;
 
 export default DS.Model.extend(EmberValidations, {
     shippingAddress: DS.belongsTo('address', { async: true }),
-    billingAddress: DS.belongsTo('address', { async: true }),
     items: DS.hasMany('item', { async: true }),
     user: DS.belongsTo('user', { async: true }),
     isPaid: DS.attr('boolean', { defaultValue: false }),
@@ -68,9 +67,6 @@ export default DS.Model.extend(EmberValidations, {
     
     validations: {
         shippingAddress: {
-            presence: true
-        },
-        billingAddress: {
             presence: true
         },
         shippingOption: {

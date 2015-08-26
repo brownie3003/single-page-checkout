@@ -6,7 +6,6 @@
 @import 'components/order-total';
 @import 'components/checkout-nav';
 @import 'components/payment-options';
-@import 'components/payment-method';
 @import 'components/validated-input';
 @import 'bootstrap-customisation/btn-moo';
 
@@ -29,4 +28,10 @@ header {
 
 .no-padding {
     padding: 0px;
+}
+
+.radio {
+    &.active {
+        background-color: #f1f1f1;
+    }
 }
