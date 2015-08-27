@@ -26,9 +26,19 @@ export default Ember.Route.extend({
         let addressBook = model;
         let order = this.modelFor('order');
         
-        let defaultAddress = addressBook.get('firstObject');
-        // Use transition object if we've not loaded any other routes yet (hitting url directly gave me the error)
-        transition.send('setShippingAddress', defaultAddress);
+        order.get('shippingAddress').then(
+            (shippingAddress) => {
+                if (!shippingAddress) {
+                    let defaultAddress = addressBook.get('firstObject');
+                    
+                    if (defaultAddress) {
+                        // Use transition object if we've not loaded any other routes yet (hitting url directly gave me the error)
+                        transition.send('setShippingAddress', defaultAddress);
+                    }
+                }
+            }
+        )
+        
     },
     setupController(controller, model) {
         let order = this.modelFor('order');
