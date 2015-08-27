@@ -24,7 +24,7 @@
 {{/each}}
 
 <label class="radio {{if showCardEntryForm 'active'}}">
-    <input type="radio" name={{name}} value="" {{action 'enterNewCard' on="change"}}>
+    <input type="radio" name={{name}} value={{newCard}} id="newCard" {{action 'enterNewCard' on="change"}}>
     <span>Enter new card</span>
     <span class="glyphicon glyphicon-plus pull-right"></span>
     {{#if showCardEntryForm}}

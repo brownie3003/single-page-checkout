@@ -31,6 +31,9 @@ export default Ember.Component.extend({
             let newAddress = store.createRecord('address');
             let user = this.get('user');
             
+            // TODO fix this horibbleness. 2 hours from user testing.
+            Ember.$("#newCard").attr('checked', true);
+            
             newAddress.set('firstName', user.get('firstName'));
             newAddress.set('lastName', user.get('lastName'));
             newAddress.set('companyName', user.get('companyName'));

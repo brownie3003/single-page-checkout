@@ -8,7 +8,7 @@
     </label>
 {{/each}}
 <label class="radio {{if showAddressEntryForm 'active'}}">
-    <input type="radio" name={{name}} value="" {{action 'enterNewAddress' on="change"}}>
+    <input type="radio" name={{name}} value="" id="newAddress" {{action 'enterNewAddress' on="change"}}>
     <span>Enter new address</span>
     <span class="glyphicon glyphicon-plus pull-right"></span>
     {{#if showAddressEntryForm}}

@@ -25,6 +25,10 @@ export default Ember.Component.extend({
             newAddress.set('firstName', user.get('firstName'));
             newAddress.set('lastName', user.get('lastName'));
             newAddress.set('companyName', user.get('companyName'));
+            
+            // TODO fix this horibbleness. 2 hours from user testing.
+            Ember.$("#newAddress").attr('checked', true);
+            
             this.set('showAddressEntryForm', true);
             this.set('newAddress', newAddress);
             this.sendAction('enterNewAddress');
