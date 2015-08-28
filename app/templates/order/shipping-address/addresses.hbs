@@ -1,0 +1,9 @@
+<form>
+    {{addresses/address-book
+        addresses=savedAddresses
+        enterNewAddress="enterNewAddress"
+        selectSavedAddress="selectSavedAddress"
+    }}
+    {{outlet}}
+    <button type="submit" name="button" class="btn btn-block btn-moo">Submit Shipping Address</button>
+</form>

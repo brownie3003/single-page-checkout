@@ -1,67 +1,60 @@
-<div class="col-lg-12">
-    <form>
+
+    <div class="form-group">
+        <label>Name</label>
+        {{validated-input value=address.name type="text" placeHolder="First Name*" errors=address.errors.firstName action="checkAddressIsValid" showAllValidation=showAllValidation}}
+    </div>
+    <div class="form-group">
+        <label>Company name</label>
+        {{validated-input value=address.companyName type="text" placeHolder="Company Name" errors=address.errors.companyName action="checkAddressIsValid" showAllValidation=showAllValidation}}
+    </div>
+    {{#if showAddressService}}
         <div class="form-group">
-            <label>First name</label>
-            {{validated-input value=address.firstName type="text" placeHolder="First Name*" errors=address.errors.firstName action="checkAddressIsValid" showAllValidation=showAllValidation}}
+            <label>Postcode</label>
+            {{validated-input value=address.postcode type="text" placeHolder="Postcode*" errors=address.errors.postcode}}
         </div>
         <div class="form-group">
-            <label>Last name</label>
-            {{validated-input value=address.lastName type="text" placeHolder="Last Name*" errors=address.errors.lastName action="checkAddressIsValid" showAllValidation=showAllValidation}}
+            <input type="button" class="btn btn-default btn-block"  value="Find Address" {{action "findAddress" address.postcode}}>
         </div>
-        <div class="form-group">
-            <label>Company name</label>
-            {{validated-input value=address.companyName type="text" placeHolder="Company Name" errors=address.errors.companyName action="checkAddressIsValid" showAllValidation=showAllValidation}}
-        </div>
-        {{#if showAddressService}}
+        {{#if addresses}}
             <div class="form-group">
-                <label>Postcode</label>
-                {{validated-input value=address.postcode type="text" placeHolder="Postcode*" errors=address.errors.postcode}}
-            </div>
-            <div class="form-group">
-                <input type="button" class="btn btn-default btn-block"  value="Find Address" {{action "findAddress" address.postcode}}>
-            </div>
-            {{#if addresses}}
-                <div class="form-group">
-                    {{#x-select class="form-control" action="selectAddressServiceAddress"}}
-                        <option selected disabled>Choose your address</option>
-                        {{#each addresses as |address|}}
-                            {{#x-option value=address}}
-                                {{addresses/moo-address address=address}}
-                            {{/x-option}}
-                        {{/each}}
-                    {{/x-select}}
-                </div>
-            {{/if}}
-        {{/if}}
-        {{#if showFullForm}}
-            <div class="form-group">
-                <label>First line</label>
-                {{validated-input value=address.firstLine type="text" placeHolder="First Line*" errors=address.errors.firstLine action="checkAddressIsValid" showAllValidation=showAllValidation}}
-            </div>
-            <div class="form-group">
-                <label>Second line</label>
-                {{validated-input value=address.secondLine type="text" placeHolder="Second Line" errors=address.errors.secondLine action="checkAddressIsValid" showAllValidation=showAllValidation}}
-            </div>
-            <div class="form-group">
-                <label>Third line</label>
-                {{validated-input value=address.thirdLine type="text" placeHolder="Third Line" errors=address.errors.thirdLine action="checkAddressIsValid" showAllValidation=showAllValidation}}
-            </div>
-            <div class="form-group">
-                <label>City</label>
-                {{validated-input value=address.city type="text" placeHolder="City*" errors=address.errors.city action="checkAddressIsValid" showAllValidation=showAllValidation}}
-            </div>
-            <div class="form-group">
-                <label>State</label>
-                {{validated-input value=address.state type="text" placeHolder="State" errors=address.errors.state action="checkAddressIsValid" showAllValidation=showAllValidation}}
-            </div>
-            <div class="form-group">
-                <label>Postcode</label>
-                {{validated-input value=address.postcode type="text" placeHolder="Postcode*" errors=address.errors.postcode action="checkAddressIsValid" showAllValidation=showAllValidation}}
-            </div>
-            <div class="form-group">
-                <label>Country</label>
-                {{validated-input value=address.country type="text" placeHolder="Country*" errors=address.errors.country action="checkAddressIsValid" showAllValidation=showAllValidation}}
+                {{#x-select class="form-control" action="selectAddressServiceAddress"}}
+                    <option selected disabled>Choose your address</option>
+                    {{#each addresses as |address|}}
+                        {{#x-option value=address}}
+                            {{addresses/moo-address address=address}}
+                        {{/x-option}}
+                    {{/each}}
+                {{/x-select}}
             </div>
         {{/if}}
-    </form>
-</div>
+    {{/if}}
+    {{#if showFullForm}}
+        <div class="form-group">
+            <label>First line</label>
+            {{validated-input value=address.firstLine type="text" placeHolder="First Line*" errors=address.errors.firstLine action="checkAddressIsValid" showAllValidation=showAllValidation}}
+        </div>
+        <div class="form-group">
+            <label>Second line</label>
+            {{validated-input value=address.secondLine type="text" placeHolder="Second Line" errors=address.errors.secondLine action="checkAddressIsValid" showAllValidation=showAllValidation}}
+        </div>
+        <div class="form-group">
+            <label>Third line</label>
+            {{validated-input value=address.thirdLine type="text" placeHolder="Third Line" errors=address.errors.thirdLine action="checkAddressIsValid" showAllValidation=showAllValidation}}
+        </div>
+        <div class="form-group">
+            <label>City</label>
+            {{validated-input value=address.city type="text" placeHolder="City*" errors=address.errors.city action="checkAddressIsValid" showAllValidation=showAllValidation}}
+        </div>
+        <div class="form-group">
+            <label>State</label>
+            {{validated-input value=address.state type="text" placeHolder="State" errors=address.errors.state action="checkAddressIsValid" showAllValidation=showAllValidation}}
+        </div>
+        <div class="form-group">
+            <label>Postcode</label>
+            {{validated-input value=address.postcode type="text" placeHolder="Postcode*" errors=address.errors.postcode action="checkAddressIsValid" showAllValidation=showAllValidation}}
+        </div>
+        <div class="form-group">
+            <label>Country</label>
+            {{validated-input value=address.country type="text" placeHolder="Country*" errors=address.errors.country action="checkAddressIsValid" showAllValidation=showAllValidation}}
+        </div>
+    {{/if}}

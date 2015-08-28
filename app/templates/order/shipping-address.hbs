@@ -30,27 +30,7 @@
                             for free.
                         </p>
                         <hr>
-                        {{addresses/address-book 
-                            addresses=addressBook
-                            user=user
-                            name="shipping" 
-                            setAddress="setShippingAddress" 
-                            enterNewAddress="enterNewShippingAddress" 
-                            setNewAddress="setNewShippingAddress" 
-                            saveAddress="saveAddress" 
-                            targetAddress=order.shippingAddress
-                        }}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        {{#link-to 'order.shipping-options'}}
-                            <button type="button" name="button" class="btn btn-block btn-moo">Shipping</button>
-                        {{/link-to}}
+                        {{outlet}}
                     </div>
                 </div>
             </div>

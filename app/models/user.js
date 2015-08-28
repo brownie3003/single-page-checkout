@@ -1,5 +1,6 @@
 import DS from 'ember-data';
 import EmberValidations from 'ember-validations';
+const { computed } = Ember;
 
 export default DS.Model.extend(EmberValidations, {
     firstName: DS.attr('string'),
@@ -7,6 +8,12 @@ export default DS.Model.extend(EmberValidations, {
     email: DS.attr('string'),
     addressBook: DS.hasMany('address', { async: true }),
     paymentBook: DS.hasMany('payment-method', { async: true }),
+    
+    // Computed properties
+    fullName: computed('firstName', 'lastName', function() {
+        return this.get('firstName') + " " + this.get('lastName');
+    }),
+    
     
     validations: {
         firstName: {

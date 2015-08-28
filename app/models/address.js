@@ -2,7 +2,7 @@ import DS from 'ember-data';
 import EmberValidations from 'ember-validations';
 
 export default DS.Model.extend(EmberValidations, {
-    firstName: DS.attr('string'),
+    name: DS.attr('string'),
     lastName: DS.attr('string'),
     companyName: DS.attr('string'),
     firstLine: DS.attr('string'),
@@ -15,14 +15,9 @@ export default DS.Model.extend(EmberValidations, {
     user: DS.belongsTo('user', { async: true }),
 
     validations: {
-        firstName: {
+        name: {
             presence: {
-                message: "We require a first Name"
-            }
-        },
-        lastName: {
-            presence: {
-                message: "Hello hot stuff, I'd like to know your last name, you know, polite society and all."
+                message: "We require a first name for delivery"
             }
         },
         firstLine: {
@@ -53,8 +48,7 @@ export default DS.Model.extend(EmberValidations, {
     FIXTURES: [
         {
             id: 1,
-            firstName: "Stephen",
-            lastName: "Hemmingswiggle",
+            name: "Rober Boratheon",
             companyName: "Hipster Inc.",
             firstLine: "123 Dalston",
             city: "London",
@@ -65,8 +59,7 @@ export default DS.Model.extend(EmberValidations, {
         },
         {
             id: 2,
-            firstName: "Andy",
-            lastName: "Brown",
+            name: "Walder Fray",
             firstLine: "123 Daily Planet",
             city: "Boston",
             postcode: "112312",

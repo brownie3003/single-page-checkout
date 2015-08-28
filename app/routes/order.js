@@ -14,11 +14,11 @@ export default Ember.Route.extend({
         let order = model;
         
         // If, for whatever reason, we don't have a shipping option, let's set the default.
-        model.get('shippingOption').then(shippingOption => {
+        order.get('shippingOption').then(shippingOption => {
             if (!shippingOption) {
                 return this.setDefaultshippingOption(order);
             }
-        })
+        });
         
         order.get('paymentMethod');
         

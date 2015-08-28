@@ -1,7 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-    classNames: ['row'],
     addressService: Ember.inject.service(),
     addresses: null,
     showAddressService: true,
